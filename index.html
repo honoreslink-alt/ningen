@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,231 +15,203 @@
 }
 
 body{
-    background:#050505;
-    color:white;
     font-family:Segoe UI, sans-serif;
+    overflow:hidden;
+    background:black;
 }
 
-.sidebar{
+/* VIDEO FONDO */
+
+#videoFondo{
     position:fixed;
-    left:0;
     top:0;
-    width:280px;
+    left:0;
+    width:100vw;
     height:100vh;
-
-    background:#090909;
-
-    border-right:1px solid #222;
-
-    padding:25px;
+    object-fit:cover;
+    z-index:-2;
 }
 
-.logo{
+/* OSCURECER UN POCO */
 
-    font-size:42px;
-    font-weight:bold;
-
-    text-align:center;
-
-    margin-bottom:40px;
-
-    letter-spacing:5px;
+.capaOscura{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+    z-index:-1;
 }
+
+/* MENÚ */
 
 .menu{
-
+    position:fixed;
+    left:25px;
+    top:50%;
+    transform:translateY(-50%);
     display:flex;
     flex-direction:column;
-
-    gap:18px;
+    gap:20px;
 }
 
-.btn{
+/* BOTONES */
 
-    text-decoration:none;
+.boton{
+    width:240px;
+    padding:22px;
+    border:none;
+    border-radius:18px;
+
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+/* NINGEN */
+
+.ningen{
+    background:linear-gradient(
+        90deg,
+        #ff0000,
+        #220000
+    );
+
+    box-shadow:
+    0 0 15px #ff0000,
+    0 0 40px #ff0000;
+}
+
+/* BESTIARIO */
+
+.bestiario{
+    background:linear-gradient(
+        90deg,
+        #00ff66,
+        #001a0d
+    );
+
+    box-shadow:
+    0 0 15px #00ff66,
+    0 0 40px #00ff66;
+}
+
+/* INTERLINK */
+
+.interlink{
+    background:linear-gradient(
+        90deg,
+        #00c8ff,
+        #00121a
+    );
+
+    box-shadow:
+    0 0 15px #00c8ff,
+    0 0 40px #00c8ff;
+}
+
+.boton:hover{
+    transform:scale(1.06);
+}
+
+/* TITULO */
+
+.logo{
+    position:absolute;
+    top:40px;
+    left:50%;
+    transform:translateX(-50%);
 
     color:white;
 
-    padding:18px;
+    font-size:120px;
+    letter-spacing:18px;
 
-    border-radius:14px;
-
-    transition:0.3s;
-
-    font-weight:bold;
-
-    text-align:center;
-}
-
-.btn:hover{
-
-    transform:scale(1.04);
-}
-
-.ningen{
-
-    background:
-    linear-gradient(
-        90deg,
-        #ff0000,
-        #550000,
-        #000000
-    );
-
-    box-shadow:
-    0 0 15px #ff0000;
-}
-
-.bestiario{
-
-    background:
-    linear-gradient(
-        90deg,
-        #00ff66,
-        #004d22,
-        #000000
-    );
-
-    box-shadow:
-    0 0 15px #00ff66;
-}
-
-.interlink{
-
-    background:
-    linear-gradient(
-        90deg,
-        #00c8ff,
-        #003d55,
-        #000000
-    );
-
-    box-shadow:
-    0 0 15px #00c8ff;
-}
-
-.main{
-
-    margin-left:280px;
-
-    min-height:100vh;
-
-    padding:60px;
-}
-
-.titulo{
-
-    font-size:90px;
-
-    letter-spacing:10px;
+    text-shadow:
+    0 0 15px white,
+    0 0 40px white;
 }
 
 .subtitulo{
+    position:absolute;
+    top:190px;
+    left:50%;
+    transform:translateX(-50%);
 
-    color:#bbbbbb;
-
-    margin-top:10px;
-
-    margin-bottom:40px;
-}
-
-.video-box{
-
-    width:100%;
-
-    height:550px;
-
-    border-radius:25px;
-
-    border:2px solid #222;
-
-    background:
-    linear-gradient(
-        135deg,
-        #111,
-        #050505
-    );
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:28px;
-
-    color:#666;
-}
-
-.info{
-
-    margin-top:40px;
-
-    color:#999;
-
-    font-size:18px;
+    color:white;
+    font-size:22px;
+    letter-spacing:4px;
 }
 
 </style>
-
 </head>
-
 <body>
 
-<div class="sidebar">
+<video
+id="videoFondo"
+autoplay
+muted
+loop
+playsinline>
 
-    <div class="logo">
-        NINGEN
-    </div>
+<source
+src="grok_video_2026-03-10-13-42-53.mp4"
+type="video/mp4">
 
-    <div class="menu">
+</video>
 
-        <a href="#" class="btn ningen">
-            NINGEN
-        </a>
+<div class="capaOscura"></div>
 
-        <a href="#" class="btn bestiario">
-            BESTIARIO
-        </a>
+<div class="logo">
+NINGEN
+</div>
 
-        <a href="#" class="btn interlink">
-            INTERLINK
-        </a>
+<div class="subtitulo">
+La humanidad frente a lo desconocido
+</div>
 
-    </div>
+<div class="menu">
+
+<button class="boton ningen">
+NINGEN
+</button>
+
+<button class="boton bestiario">
+BESTIARIO
+</button>
+
+<button class="boton interlink">
+INTERLINK
+</button>
 
 </div>
 
-<div class="main">
+<script>
 
-    <div class="titulo">
-        NINGEN
-    </div>
+/*
+Primer click activa sonido
+*/
 
-    <div class="subtitulo">
-        La humanidad frente a lo desconocido.
-    </div>
+let activado=false;
 
-    <div class="video-box">
+document.addEventListener("click",()=>{
 
-        AQUÍ IRÁ TU VIDEO
+if(activado) return;
 
-    </div>
+const video=document.getElementById("videoFondo");
 
-    <div class="info">
+video.muted=false;
 
-        Archivo principal del universo Ningen.
+setTimeout(()=>{
+video.muted=true;
+},5000);
 
-        <br><br>
+activado=true;
 
-        Aquí vivirán criaturas, personajes,
-        lugares, historias, cronologías y todo
-        lo que existe dentro de tu cabeza.
+});
 
-    </div>
-
-</div>
+</script>
 
 </body>
-
 </html>
