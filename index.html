@@ -1,10 +1,247 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
-    <title>NINGEN</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NINGEN</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#050505;
+    color:white;
+    font-family:Segoe UI, sans-serif;
+}
+
+.sidebar{
+    position:fixed;
+    left:0;
+    top:0;
+    width:280px;
+    height:100vh;
+
+    background:#090909;
+
+    border-right:1px solid #222;
+
+    padding:25px;
+}
+
+.logo{
+
+    font-size:42px;
+    font-weight:bold;
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+    letter-spacing:5px;
+}
+
+.menu{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:18px;
+}
+
+.btn{
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:18px;
+
+    border-radius:14px;
+
+    transition:0.3s;
+
+    font-weight:bold;
+
+    text-align:center;
+}
+
+.btn:hover{
+
+    transform:scale(1.04);
+}
+
+.ningen{
+
+    background:
+    linear-gradient(
+        90deg,
+        #ff0000,
+        #550000,
+        #000000
+    );
+
+    box-shadow:
+    0 0 15px #ff0000;
+}
+
+.bestiario{
+
+    background:
+    linear-gradient(
+        90deg,
+        #00ff66,
+        #004d22,
+        #000000
+    );
+
+    box-shadow:
+    0 0 15px #00ff66;
+}
+
+.interlink{
+
+    background:
+    linear-gradient(
+        90deg,
+        #00c8ff,
+        #003d55,
+        #000000
+    );
+
+    box-shadow:
+    0 0 15px #00c8ff;
+}
+
+.main{
+
+    margin-left:280px;
+
+    min-height:100vh;
+
+    padding:60px;
+}
+
+.titulo{
+
+    font-size:90px;
+
+    letter-spacing:10px;
+}
+
+.subtitulo{
+
+    color:#bbbbbb;
+
+    margin-top:10px;
+
+    margin-bottom:40px;
+}
+
+.video-box{
+
+    width:100%;
+
+    height:550px;
+
+    border-radius:25px;
+
+    border:2px solid #222;
+
+    background:
+    linear-gradient(
+        135deg,
+        #111,
+        #050505
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+    color:#666;
+}
+
+.info{
+
+    margin-top:40px;
+
+    color:#999;
+
+    font-size:18px;
+}
+
+</style>
+
 </head>
+
 <body>
-    <h1>NINGEN</h1>
-    <p>La humanidad frente a lo desconocido.</p>
+
+<div class="sidebar">
+
+    <div class="logo">
+        NINGEN
+    </div>
+
+    <div class="menu">
+
+        <a href="#" class="btn ningen">
+            NINGEN
+        </a>
+
+        <a href="#" class="btn bestiario">
+            BESTIARIO
+        </a>
+
+        <a href="#" class="btn interlink">
+            INTERLINK
+        </a>
+
+    </div>
+
+</div>
+
+<div class="main">
+
+    <div class="titulo">
+        NINGEN
+    </div>
+
+    <div class="subtitulo">
+        La humanidad frente a lo desconocido.
+    </div>
+
+    <div class="video-box">
+
+        AQUÍ IRÁ TU VIDEO
+
+    </div>
+
+    <div class="info">
+
+        Archivo principal del universo Ningen.
+
+        <br><br>
+
+        Aquí vivirán criaturas, personajes,
+        lugares, historias, cronologías y todo
+        lo que existe dentro de tu cabeza.
+
+    </div>
+
+</div>
+
 </body>
+
 </html>
