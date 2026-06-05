@@ -3,24 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>NINGEN</title>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
     font-family:Segoe UI, sans-serif;
     overflow:hidden;
     background:black;
 }
-
-/* VIDEO FONDO */
 
 #videoFondo{
     position:fixed;
@@ -32,16 +24,34 @@ body{
     z-index:-2;
 }
 
-/* OSCURECER UN POCO */
-
 .capaOscura{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,0.45);
+    background:rgba(0,0,0,0.50);
     z-index:-1;
 }
 
-/* MENÚ */
+.logo{
+    position:absolute;
+    top:40px;
+    left:50%;
+    transform:translateX(-50%);
+    color:white;
+    font-size:110px;
+    letter-spacing:18px;
+    text-shadow:0 0 15px white,0 0 40px white;
+}
+
+.subtitulo{
+    position:absolute;
+    top:180px;
+    left:50%;
+    transform:translateX(-50%);
+    color:white;
+    font-size:22px;
+    letter-spacing:4px;
+    text-align:center;
+}
 
 .menu{
     position:fixed;
@@ -51,166 +61,169 @@ body{
     display:flex;
     flex-direction:column;
     gap:20px;
+    z-index:10;
 }
-
-/* BOTONES */
 
 .boton{
     width:240px;
     padding:22px;
     border:none;
     border-radius:18px;
-
     color:white;
     font-size:22px;
     font-weight:bold;
     cursor:pointer;
-
     transition:.3s;
-}
-
-/* NINGEN */
-
-.ningen{
-    background:linear-gradient(
-        90deg,
-        #ff0000,
-        #220000
-    );
-
-    box-shadow:
-    0 0 15px #ff0000,
-    0 0 40px #ff0000;
-}
-
-/* BESTIARIO */
-
-.bestiario{
-    background:linear-gradient(
-        90deg,
-        #00ff66,
-        #001a0d
-    );
-
-    box-shadow:
-    0 0 15px #00ff66,
-    0 0 40px #00ff66;
-}
-
-/* INTERLINK */
-
-.interlink{
-    background:linear-gradient(
-        90deg,
-        #00c8ff,
-        #00121a
-    );
-
-    box-shadow:
-    0 0 15px #00c8ff,
-    0 0 40px #00c8ff;
 }
 
 .boton:hover{
     transform:scale(1.06);
 }
 
-/* TITULO */
-
-.logo{
-    position:absolute;
-    top:40px;
-    left:50%;
-    transform:translateX(-50%);
-
-    color:white;
-
-    font-size:120px;
-    letter-spacing:18px;
-
-    text-shadow:
-    0 0 15px white,
-    0 0 40px white;
+.ningen{
+    background:linear-gradient(90deg,#ff0000,#220000);
+    box-shadow:0 0 15px #ff0000,0 0 40px #ff0000;
 }
 
-.subtitulo{
-    position:absolute;
-    top:190px;
-    left:50%;
-    transform:translateX(-50%);
+.bestiario{
+    background:linear-gradient(90deg,#00ff66,#001a0d);
+    box-shadow:0 0 15px #00ff66,0 0 40px #00ff66;
+}
 
+.interlink{
+    background:linear-gradient(90deg,#00c8ff,#00121a);
+    box-shadow:0 0 15px #00c8ff,0 0 40px #00c8ff;
+}
+
+/* PANEL CENTRAL NINGEN */
+
+.panelCentral{
+    position:absolute;
+    top:58%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:520px;
+    display:none;
+    flex-direction:column;
+    gap:18px;
+    z-index:8;
+}
+
+.panelCentral.activo{
+    display:flex;
+}
+
+.botonPersonaje{
+    width:100%;
+    padding:20px;
+    border-radius:18px;
+    border:2px solid white;
+    background:linear-gradient(90deg,#ff0000,#220000,#000000);
     color:white;
     font-size:22px;
-    letter-spacing:4px;
+    font-weight:bold;
+    letter-spacing:2px;
+    cursor:pointer;
+    box-shadow:
+        0 0 12px white,
+        0 0 20px #ff0000,
+        0 0 45px #ff0000;
+    transition:.3s;
 }
 
+.botonPersonaje:hover{
+    transform:scale(1.04);
+    box-shadow:
+        0 0 18px white,
+        0 0 35px #ff0000,
+        0 0 70px #ff0000;
+}
+
+@media (max-width:768px){
+
+    .logo{
+        font-size:62px;
+        top:28px;
+        letter-spacing:8px;
+    }
+
+    .subtitulo{
+        top:112px;
+        font-size:14px;
+        width:90%;
+        letter-spacing:3px;
+    }
+
+    .menu{
+        left:50%;
+        top:auto;
+        bottom:24px;
+        transform:translateX(-50%);
+        gap:12px;
+    }
+
+    .boton{
+        width:250px;
+        padding:15px;
+        font-size:16px;
+    }
+
+    .panelCentral{
+        top:48%;
+        width:86%;
+        gap:12px;
+    }
+
+    .botonPersonaje{
+        padding:14px;
+        font-size:15px;
+        letter-spacing:1px;
+    }
+}
 </style>
 </head>
+
 <body>
 
-<video
-id="videoFondo"
-autoplay
-muted
-loop
-playsinline>
-
-<source
-src="grok_video_2026-03-10-13-42-53.mp4"
-type="video/mp4">
-
+<video id="videoFondo" autoplay muted loop playsinline>
+    <source src="grok_video_2026-03-10-13-42-53.mp4" type="video/mp4">
 </video>
 
 <div class="capaOscura"></div>
 
-<div class="logo">
-NINGEN
-</div>
-
-<div class="subtitulo">
-La humanidad frente a lo desconocido
-</div>
+<div class="logo">NINGEN</div>
+<div class="subtitulo">La humanidad frente a lo desconocido</div>
 
 <div class="menu">
+    <button class="boton ningen" onclick="mostrarNingen()">NINGEN</button>
+    <button class="boton bestiario">BESTIARIO</button>
+    <button class="boton interlink">INTERLINK</button>
+</div>
 
-<button class="boton ningen">
-NINGEN
-</button>
-
-<button class="boton bestiario">
-BESTIARIO
-</button>
-
-<button class="boton interlink">
-INTERLINK
-</button>
-
+<div id="panelNingen" class="panelCentral">
+    <button class="botonPersonaje">LA VERDAD</button>
+    <button class="botonPersonaje">EL OGRO</button>
+    <button class="botonPersonaje">EL ARQUERO</button>
+    <button class="botonPersonaje">LA TEJEDORA</button>
+    <button class="botonPersonaje">LICANRAY</button>
+    <button class="botonPersonaje">EL PROFESOR</button>
+    <button class="botonPersonaje">ONE FOR PUBI</button>
 </div>
 
 <script>
-
-/*
-Primer click activa sonido
-*/
-
 let activado=false;
 
 document.addEventListener("click",()=>{
-
-if(activado) return;
-
-const video=document.getElementById("videoFondo");
-
-video.muted=false;
-
-setTimeout(()=>{
-video.muted=true;
-},5000);
-
-activado=true;
-
+    if(activado) return;
+    const video=document.getElementById("videoFondo");
+    video.muted=false;
+    setTimeout(()=>{video.muted=true;},5000);
+    activado=true;
 });
 
+function mostrarNingen(){
+    document.getElementById("panelNingen").classList.toggle("activo");
+}
 </script>
 
 </body>
