@@ -237,3 +237,25 @@ body{
     <button class="botonPersonaje">FAKER</button>
     <button class="botonPersonaje">EL MONJE</button>
 </div>
+<script>
+function mostrarNingen(){
+    document.getElementById("panelNingen").classList.toggle("activo");
+}
+
+function toggleSonido(){
+    const video=document.getElementById("videoFondo");
+    const boton=document.getElementById("botonSonido");
+
+    video.muted = !video.muted;
+
+    if(video.muted){
+        boton.textContent="🔇";
+    }else{
+        video.play();
+        boton.textContent="🔊";
+    }
+}
+</script>
+
+</body>
+</html>
