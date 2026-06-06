@@ -113,6 +113,75 @@ body{
     box-shadow:0 0 12px white;
 }
 
+/* PANEL DE PERSONAJES */
+
+.panelCentral{
+    position:absolute;
+    top:58%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:min(1050px,72vw);
+    max-height:68vh;
+    overflow-y:auto;
+    padding:10px;
+    display:none;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    z-index:8;
+}
+
+.panelCentral.activo{
+    display:grid;
+}
+
+.cardPersonaje{
+    position:relative;
+    height:220px;
+    border-radius:16px;
+    overflow:hidden;
+    cursor:pointer;
+    background:#111;
+    border:1px solid rgba(255,255,255,.16);
+    box-shadow:0 10px 25px rgba(0,0,0,.55);
+    transition:.3s;
+}
+
+.cardPersonaje:hover{
+    transform:scale(1.04);
+}
+
+.cardPersonaje img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.cardPersonaje:hover img{
+    transform:scale(1.08);
+}
+
+.nombrePersonaje{
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    padding:42px 8px 13px;
+    text-align:center;
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+    letter-spacing:1px;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.96),
+        rgba(0,0,0,.65),
+        transparent
+    );
+}
+
+/* CELULAR */
+
 @media (max-width:768px){
 
     .logo{
@@ -149,6 +218,25 @@ body{
         top:18px;
         font-size:23px;
     }
+
+    .panelCentral{
+        top:47%;
+        width:90%;
+        max-height:55vh;
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+        padding:6px;
+    }
+
+    .cardPersonaje{
+        height:185px;
+        border-radius:13px;
+    }
+
+    .nombrePersonaje{
+        font-size:11px;
+        padding:32px 6px 10px;
+    }
 }
 </style>
 </head>
@@ -170,12 +258,93 @@ body{
 </div>
 
 <div class="menu">
-    <button class="boton ningen" onclick="window.location.href='ningen.html'">NINGEN</button>
-    <button class="boton bestiario">BESTIARIO</button>
-    <button class="boton interlink">INTERLINK</button>
+    <button class="boton ningen" onclick="mostrarPanel('panelNingen')">NINGEN</button>
+    <button class="boton bestiario" onclick="mostrarPanel('panelBestiario')">BESTIARIO</button>
+    <button class="boton interlink" onclick="mostrarPanel('panelInterlink')">INTERLINK</button>
 </div>
 
+<div id="panelNingen" class="panelCentral">
+
+    <div class="cardPersonaje">
+        <img src="Splash Art El Monje.png">
+        <div class="nombrePersonaje">EL MONJE</div>
+    </div>
+
+    <div class="cardPersonaje">
+        <img src="Splash Art El Arquero.png">
+        <div class="nombrePersonaje">EL ARQUERO</div>
+    </div>
+
+    <div class="cardPersonaje">
+        <img src="Splash Art El Ogro.png">
+        <div class="nombrePersonaje">EL OGRO</div>
+    </div>
+
+    <div class="cardPersonaje">
+        <img src="Splash Art El Patriarca.png">
+        <div class="nombrePersonaje">EL PATRIARCA</div>
+    </div>
+
+    <div class="cardPersonaje">
+        <img src="Splash Art El Profesor Rev 2.png">
+        <div class="nombrePersonaje">EL PROFESOR</div>
+    </div>
+
+    <div class="cardPersonaje">
+        <img src="Splash Art El Templario Rev - A.png">
+        <div class="nombrePersonaje">EL TEMPLARIO</div>
+    </div>
+
+    <div class="cardPersonaje">
+        <img src="Splash Art El Umbral.png">
+        <div class="nombrePersonaje">EL UMBRAL</div>
+    </div>
+
+    <div class="cardPersonaje">
+        <img src="Splash Art Faker.png">
+        <div class="nombrePersonaje">FAKER</div>
+    </div>
+
+    <div class="cardPersonaje">
+        <img src="Splash Art La Tejedora.png">
+        <div class="nombrePersonaje">LA TEJEDORA</div>
+    </div>
+
+    <div class="cardPersonaje">
+        <img src="Splash Art La Verdad.png">
+        <div class="nombrePersonaje">LA VERDAD</div>
+    </div>
+
+    <div class="cardPersonaje">
+        <img src="Splash Art Lican Ray.png">
+        <div class="nombrePersonaje">LICANRAY</div>
+    </div>
+
+    <div class="cardPersonaje">
+        <img src="Splash Art One For Pubi.png">
+        <div class="nombrePersonaje">ONE FOR PUBI</div>
+    </div>
+
+</div>
+
+<div id="panelBestiario" class="panelCentral"></div>
+
+<div id="panelInterlink" class="panelCentral"></div>
+
 <script>
+function mostrarPanel(idPanel){
+    const paneles = document.querySelectorAll(".panelCentral");
+    const panelSeleccionado = document.getElementById(idPanel);
+
+    paneles.forEach(panel => {
+        if(panel !== panelSeleccionado){
+            panel.classList.remove("activo");
+        }
+    });
+
+    panelSeleccionado.classList.toggle("activo");
+}
+
 function toggleSonido(){
     const video=document.getElementById("videoFondo");
     const boton=document.getElementById("botonSonido");
