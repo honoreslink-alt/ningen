@@ -97,8 +97,6 @@ body{
     box-shadow:0 0 15px #00c8ff,0 0 40px #00c8ff;
 }
 
-/* BOTÓN SONIDO */
-
 .sonido{
     position:fixed;
     right:30px;
@@ -113,43 +111,6 @@ body{
     cursor:pointer;
     z-index:20;
     box-shadow:0 0 12px white;
-}
-
-/* PANEL NINGEN */
-
-.panelCentral{
-    position:absolute;
-    top:58%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    width:min(900px,70vw);
-    display:none;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-    z-index:8;
-}
-
-.panelCentral.activo{
-    display:grid;
-}
-
-.botonPersonaje{
-    padding:18px 12px;
-    border-radius:18px;
-    border:2px solid white;
-    background:linear-gradient(90deg,#ff0000,#220000,#000000);
-    color:white;
-    font-size:18px;
-    font-weight:bold;
-    letter-spacing:1px;
-    cursor:pointer;
-    box-shadow:0 0 10px white,0 0 20px #ff0000,0 0 40px #ff0000;
-    transition:.3s;
-}
-
-.botonPersonaje:hover{
-    transform:scale(1.04);
-    box-shadow:0 0 18px white,0 0 35px #ff0000,0 0 70px #ff0000;
 }
 
 @media (max-width:768px){
@@ -188,18 +149,6 @@ body{
         top:18px;
         font-size:23px;
     }
-
-    .panelCentral{
-        top:48%;
-        width:88%;
-        grid-template-columns:repeat(2,1fr);
-        gap:10px;
-    }
-
-    .botonPersonaje{
-        padding:12px 8px;
-        font-size:12px;
-    }
 }
 </style>
 </head>
@@ -215,33 +164,18 @@ body{
 <button class="sonido" id="botonSonido" onclick="toggleSonido()">🔇</button>
 
 <div class="logo">NINGEN</div>
-<div class="subtitulo">La humanidad frente a lo desconocido</div>
+
+<div class="subtitulo">
+    La humanidad frente a lo desconocido
+</div>
 
 <div class="menu">
-    <button class="boton ningen" onclick="mostrarNingen()">NINGEN</button>
+    <button class="boton ningen" onclick="window.location.href='ningen.html'">NINGEN</button>
     <button class="boton bestiario">BESTIARIO</button>
     <button class="boton interlink">INTERLINK</button>
 </div>
 
-<div id="panelNingen" class="panelCentral">
-    <button class="botonPersonaje">LA VERDAD</button>
-    <button class="botonPersonaje">EL OGRO</button>
-    <button class="botonPersonaje">EL ARQUERO</button>
-    <button class="botonPersonaje">LA TEJEDORA</button>
-    <button class="botonPersonaje">LICANRAY</button>
-    <button class="botonPersonaje">EL PROFESOR</button>
-    <button class="botonPersonaje">ONE FOR PUBI</button>
-    <button class="botonPersonaje">EL PATRIARCA</button>
-    <button class="botonPersonaje">EL TEMPLARIO</button>
-    <button class="botonPersonaje">EL UMBRAL</button>
-    <button class="botonPersonaje">FAKER</button>
-    <button class="botonPersonaje">EL MONJE</button>
-</div>
 <script>
-function mostrarNingen(){
-    document.getElementById("panelNingen").classList.toggle("activo");
-}
-
 function toggleSonido(){
     const video=document.getElementById("videoFondo");
     const boton=document.getElementById("botonSonido");
