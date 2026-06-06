@@ -2,34 +2,221 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>NINGEN</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NINGEN - Archivo de Personajes</title>
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box}
+
 body{
-    background:black;
+    background:#070707;
     color:white;
-    font-family:Arial;
-    text-align:center;
-    padding-top:100px;
+    font-family:Segoe UI, sans-serif;
+    min-height:100vh;
+    padding:35px;
 }
 
-h1{
-    color:red;
+.volver{
+    position:fixed;
+    left:25px;
+    top:25px;
+    color:white;
+    text-decoration:none;
+    background:rgba(0,0,0,.65);
+    border:1px solid rgba(255,255,255,.25);
+    padding:12px 18px;
+    border-radius:12px;
+    z-index:10;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.header h1{
+    font-size:58px;
+    letter-spacing:10px;
+}
+
+.header p{
+    margin-top:8px;
+    color:#bdbdbd;
+    letter-spacing:3px;
+}
+
+.grid{
+    max-width:1250px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.card{
+    position:relative;
+    height:430px;
+    border-radius:20px;
+    overflow:hidden;
+    cursor:pointer;
+    background:#111;
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 12px 35px rgba(0,0,0,.65);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px) scale(1.02);
+}
+
+.card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.45s;
+}
+
+.card:hover img{
+    transform:scale(1.08);
+}
+
+.nombre{
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    padding:70px 15px 22px;
+    text-align:center;
+    font-size:23px;
+    font-weight:bold;
+    letter-spacing:2px;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.98),
+        rgba(0,0,0,.72),
+        transparent
+    );
+}
+
+@media(max-width:768px){
+
+    body{
+        padding:22px 12px;
+    }
+
+    .volver{
+        left:12px;
+        top:12px;
+        font-size:13px;
+        padding:9px 12px;
+    }
+
+    .header{
+        margin-top:48px;
+        margin-bottom:22px;
+    }
+
+    .header h1{
+        font-size:36px;
+        letter-spacing:6px;
+    }
+
+    .header p{
+        font-size:13px;
+        letter-spacing:2px;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:13px;
+    }
+
+    .card{
+        height:255px;
+        border-radius:14px;
+    }
+
+    .nombre{
+        font-size:13px;
+        letter-spacing:1px;
+        padding:45px 8px 12px;
+    }
 }
 </style>
-
 </head>
+
 <body>
 
-<h1>NINGEN</h1>
+<a href="index.html" class="volver">← VOLVER</a>
 
-<h2>LA VERDAD</h2>
-<h2>EL OGRO</h2>
-<h2>EL ARQUERO</h2>
-<h2>LA TEJEDORA</h2>
-<h2>LICANRAY</h2>
-<h2>EL PROFESOR</h2>
-<h2>ONE FOR PUBI</h2>
+<div class="header">
+    <h1>NINGEN</h1>
+    <p>ARCHIVO DE PERSONAJES</p>
+</div>
+
+<div class="grid">
+
+    <div class="card">
+        <img src="Splash Art El Monje.png">
+        <div class="nombre">EL MONJE</div>
+    </div>
+
+    <div class="card">
+        <img src="Splash Art El Arquero.png">
+        <div class="nombre">EL ARQUERO</div>
+    </div>
+
+    <div class="card">
+        <img src="Splash Art El Ogro.png">
+        <div class="nombre">EL OGRO</div>
+    </div>
+
+    <div class="card">
+        <img src="Splash Art El Patriarca.png">
+        <div class="nombre">EL PATRIARCA</div>
+    </div>
+
+    <div class="card">
+        <img src="Splash Art El Profesor Rev 2.png">
+        <div class="nombre">EL PROFESOR</div>
+    </div>
+
+    <div class="card">
+        <img src="Splash Art El Templario Rev - A.png">
+        <div class="nombre">EL TEMPLARIO</div>
+    </div>
+
+    <div class="card">
+        <img src="Splash Art El Umbral.png">
+        <div class="nombre">EL UMBRAL</div>
+    </div>
+
+    <div class="card">
+        <img src="Splash Art Faker.png">
+        <div class="nombre">FAKER</div>
+    </div>
+
+    <div class="card">
+        <img src="Splash Art La Tejedora.png">
+        <div class="nombre">LA TEJEDORA</div>
+    </div>
+
+    <div class="card">
+        <img src="Splash Art La Verdad.png">
+        <div class="nombre">LA VERDAD</div>
+    </div>
+
+    <div class="card">
+        <img src="Splash Art Lican Ray.png">
+        <div class="nombre">LICANRAY</div>
+    </div>
+
+    <div class="card">
+        <img src="Splash Art One For Pubi.png">
+        <div class="nombre">ONE FOR PUBI</div>
+    </div>
+
+</div>
 
 </body>
 </html>
