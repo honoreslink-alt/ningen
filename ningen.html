@@ -8,12 +8,24 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
+html{
+    scrollbar-width:none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar{
+    display:none;
+}
+
 body{
     background:#070707;
     color:white;
     font-family:Segoe UI, sans-serif;
     min-height:100vh;
     padding:35px;
+    overflow-y:auto;
+    -ms-overflow-style:none;
+    scrollbar-width:none;
 }
 
 .volver{
