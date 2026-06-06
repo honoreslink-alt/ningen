@@ -231,27 +231,9 @@ body{
     <button class="botonPersonaje">LICANRAY</button>
     <button class="botonPersonaje">EL PROFESOR</button>
     <button class="botonPersonaje">ONE FOR PUBI</button>
+    <button class="botonPersonaje">EL PATRIARCA</button>
+    <button class="botonPersonaje">EL TEMPLARIO</button>
+    <button class="botonPersonaje">EL UMBRAL</button>
+    <button class="botonPersonaje">FAKER</button>
+    <button class="botonPersonaje">EL MONJE</button>
 </div>
-
-<script>
-function mostrarNingen(){
-    document.getElementById("panelNingen").classList.toggle("activo");
-}
-
-function toggleSonido(){
-    const video=document.getElementById("videoFondo");
-    const boton=document.getElementById("botonSonido");
-
-    video.muted = !video.muted;
-
-    if(video.muted){
-        boton.textContent="🔇";
-    }else{
-        video.play();
-        boton.textContent="🔊";
-    }
-}
-</script>
-
-</body>
-</html>
