@@ -49,7 +49,7 @@ body{
 
 .titulo{
     position:fixed;
-    top:45px;
+    top:35px;
     left:50%;
     transform:translateX(-50%);
     font-size:55px;
@@ -60,7 +60,7 @@ body{
 
 .subtitulo{
     position:fixed;
-    top:120px;
+    top:110px;
     left:50%;
     transform:translateX(-50%);
     font-size:16px;
@@ -111,90 +111,145 @@ body{
     transition:.3s;
 }
 
-.botonNingen:hover{
-    transform:scale(1.04);
-}
+.botonNingen:hover{transform:scale(1.04)}
 
 .botonFicha:hover{
     transform:translateX(6px);
     box-shadow:0 0 12px rgba(255,255,255,.25),0 0 18px rgba(216,181,109,.55);
 }
 
-.mensajeCentro{
+.zonaCentral{
     position:fixed;
-    top:52%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    text-align:center;
-    font-size:28px;
-    letter-spacing:4px;
-    color:rgba(255,255,255,.78);
-    background:rgba(0,0,0,.35);
-    border:1px solid rgba(255,255,255,.18);
-    border-radius:20px;
-    padding:28px 45px;
+    top:165px;
+    left:310px;
+    right:40px;
+    bottom:40px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:8;
+}
+
+.splashMonje{
+    max-width:520px;
+    max-height:72vh;
+    object-fit:contain;
+    filter:drop-shadow(0 0 22px rgba(216,181,109,.45));
+}
+
+.panelInfo{
+    position:fixed;
+    right:40px;
+    bottom:45px;
+    width:360px;
+    min-height:150px;
+    padding:22px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.25);
+    background:rgba(0,0,0,.42);
+    backdrop-filter:blur(5px);
+    z-index:20;
+}
+
+.panelInfo h2{
+    font-size:20px;
+    letter-spacing:3px;
+    color:#e7d3a0;
+    margin-bottom:12px;
+}
+
+.panelInfo p{
+    font-size:14px;
+    line-height:1.5;
+    color:rgba(255,255,255,.82);
 }
 
 /* CELULAR */
 @media (max-width:768px){
 
     .titulo{
-        top:28px;
-        font-size:32px;
+        top:22px;
+        font-size:30px;
         letter-spacing:5px;
         width:90%;
         text-align:center;
     }
 
     .subtitulo{
-        top:78px;
-        font-size:11px;
+        top:68px;
+        font-size:10px;
         width:90%;
         letter-spacing:2px;
     }
 
     .sonido{
-        width:45px;
-        height:45px;
-        right:15px;
-        top:15px;
-        font-size:21px;
+        width:42px;
+        height:42px;
+        right:13px;
+        top:13px;
+        font-size:20px;
     }
 
-    .mensajeCentro{
-        top:35%;
-        width:78%;
-        font-size:15px;
-        padding:16px;
-        letter-spacing:2px;
+    .zonaCentral{
+        top:105px;
+        left:5px;
+        right:5px;
+        bottom:165px;
+        align-items:center;
+    }
+
+    .splashMonje{
+        max-width:96%;
+        max-height:100%;
     }
 
     .menuLateral{
-        left:12px;
+        left:8px;
         top:auto;
-        bottom:10px;
+        bottom:8px;
         transform:none;
-        width:155px;
-        gap:5px;
+        width:46%;
+        gap:4px;
     }
 
     .botonNingen{
-        width:155px;
-        padding:9px;
-        font-size:15px;
-        border-radius:12px;
+        width:100%;
+        padding:8px;
+        font-size:14px;
+        border-radius:10px;
         letter-spacing:3px;
     }
 
     .botonFicha{
-        width:155px;
-        padding:7px;
-        font-size:9px;
-        border-radius:10px;
+        width:100%;
+        padding:6px;
+        font-size:8.5px;
+        border-radius:9px;
         letter-spacing:1px;
-        background:rgba(0,0,0,.18);
+        background:transparent;
         border:1px solid rgba(255,255,255,.32);
         box-shadow:none;
+    }
+
+    .panelInfo{
+        right:8px;
+        bottom:8px;
+        width:46%;
+        min-height:160px;
+        padding:11px;
+        border-radius:12px;
+        background:rgba(0,0,0,.25);
+    }
+
+    .panelInfo h2{
+        font-size:11px;
+        letter-spacing:1px;
+        margin-bottom:7px;
+    }
+
+    .panelInfo p{
+        font-size:9px;
+        line-height:1.35;
     }
 }
 </style>
@@ -211,26 +266,32 @@ body{
 <button class="sonido" id="botonSonido" onclick="toggleSonido()">🔇</button>
 
 <div class="titulo">EL MONJE</div>
-
 <div class="subtitulo">Archivo NINGEN // Registro de entidad</div>
 
-<div class="mensajeCentro">BASE DE ARCHIVO EN CONSTRUCCIÓN</div>
+<div class="zonaCentral">
+    <img class="splashMonje" src="Splash Art El Monje.png" alt="Splash Art El Monje">
+</div>
 
 <div class="menuLateral">
 
     <button class="botonNingen" onclick="window.location.href='index.html'">NINGEN</button>
 
-    <button class="botonFicha">IDENTIDAD</button>
-    <button class="botonFicha">ORIGEN</button>
-    <button class="botonFicha">DESCRIPCIÓN</button>
-    <button class="botonFicha">PERSONALIDAD</button>
-    <button class="botonFicha">HISTORIA</button>
-    <button class="botonFicha">HABILIDADES</button>
-    <button class="botonFicha">FRAGMENTOS</button>
-    <button class="botonFicha">RELACIONES</button>
-    <button class="botonFicha">REGISTROS</button>
-    <button class="botonFicha">CLASIFICACIÓN</button>
+    <button class="botonFicha" onclick="mostrarInfo('IDENTIDAD')">IDENTIDAD</button>
+    <button class="botonFicha" onclick="mostrarInfo('ORIGEN')">ORIGEN</button>
+    <button class="botonFicha" onclick="mostrarInfo('DESCRIPCIÓN')">DESCRIPCIÓN</button>
+    <button class="botonFicha" onclick="mostrarInfo('PERSONALIDAD')">PERSONALIDAD</button>
+    <button class="botonFicha" onclick="mostrarInfo('HISTORIA')">HISTORIA</button>
+    <button class="botonFicha" onclick="mostrarInfo('HABILIDADES')">HABILIDADES</button>
+    <button class="botonFicha" onclick="mostrarInfo('FRAGMENTOS')">FRAGMENTOS</button>
+    <button class="botonFicha" onclick="mostrarInfo('RELACIONES')">RELACIONES</button>
+    <button class="botonFicha" onclick="mostrarInfo('REGISTROS')">REGISTROS</button>
+    <button class="botonFicha" onclick="mostrarInfo('CLASIFICACIÓN')">CLASIFICACIÓN</button>
 
+</div>
+
+<div class="panelInfo">
+    <h2 id="tituloInfo">ARCHIVO</h2>
+    <p id="textoInfo">Selecciona una categoría para desplegar información del Monje.</p>
 </div>
 
 <script>
@@ -246,6 +307,27 @@ function toggleSonido(){
         video.play();
         boton.textContent="🔊";
     }
+}
+
+function mostrarInfo(seccion){
+    const titulo=document.getElementById("tituloInfo");
+    const texto=document.getElementById("textoInfo");
+
+    const info={
+        "IDENTIDAD":"Nombre, título, alias, raza, edad, estatura y estado actual de la entidad.",
+        "ORIGEN":"Ciudad de origen, región, facción y primeras señales registradas.",
+        "DESCRIPCIÓN":"Aspecto físico, vestimenta y rasgos distintivos del Monje.",
+        "PERSONALIDAD":"Conducta, forma de hablar, motivaciones y contradicciones internas.",
+        "HISTORIA":"Relato principal del personaje dentro del universo Ningen.",
+        "HABILIDADES":"Técnicas, dones, límites, debilidades y manifestaciones especiales.",
+        "FRAGMENTOS":"Relación del Monje con fragmentos, rastros o energía desconocida.",
+        "RELACIONES":"Vínculos con otros personajes, aliados, enemigos o entidades.",
+        "REGISTROS":"Avistamientos, documentos, testimonios y archivos vinculados.",
+        "CLASIFICACIÓN":"Nivel de amenaza, categoría, estado de observación y prioridad."
+    };
+
+    titulo.textContent=seccion;
+    texto.textContent=info[seccion];
 }
 </script>
 
