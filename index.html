@@ -27,7 +27,7 @@ body{
 .capaOscura{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,0.45);
+    background:rgba(0,0,0,0.48);
     z-index:-1;
 }
 
@@ -63,7 +63,7 @@ body{
     display:flex;
     flex-direction:column;
     gap:20px;
-    z-index:10;
+    z-index:20;
 }
 
 .boton{
@@ -109,34 +109,40 @@ body{
     color:white;
     font-size:28px;
     cursor:pointer;
-    z-index:20;
+    z-index:30;
     box-shadow:0 0 12px white;
 }
 
-/* PANEL DE PERSONAJES */
+/* PANEL NINGEN */
 
-.panelCentral{
+.panelNingen{
     position:absolute;
-    top:58%;
+    top:57%;
     left:50%;
     transform:translate(-50%,-50%);
-    width:min(1050px,72vw);
+    width:min(1120px,72vw);
     max-height:68vh;
     overflow-y:auto;
-    padding:10px;
     display:none;
     grid-template-columns:repeat(4,1fr);
     gap:16px;
-    z-index:8;
+    padding:8px;
+    z-index:10;
+
+    scrollbar-width:none;
 }
 
-.panelCentral.activo{
+.panelNingen::-webkit-scrollbar{
+    display:none;
+}
+
+.panelNingen.activo{
     display:grid;
 }
 
 .cardPersonaje{
     position:relative;
-    height:220px;
+    height:230px;
     border-radius:16px;
     overflow:hidden;
     cursor:pointer;
@@ -180,9 +186,34 @@ body{
     );
 }
 
+.mensajeTemporal{
+    position:absolute;
+    top:58%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:white;
+    font-size:34px;
+    letter-spacing:4px;
+    text-align:center;
+    display:none;
+    z-index:9;
+    background:rgba(0,0,0,.45);
+    padding:30px 50px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.18);
+}
+
+.mensajeTemporal.activo{
+    display:block;
+}
+
 /* CELULAR */
 
 @media (max-width:768px){
+
+    body{
+        overflow:hidden;
+    }
 
     .logo{
         font-size:54px;
@@ -219,23 +250,30 @@ body{
         font-size:23px;
     }
 
-    .panelCentral{
-        top:47%;
+    .panelNingen{
+        top:46%;
         width:90%;
-        max-height:55vh;
+        max-height:50vh;
         grid-template-columns:repeat(2,1fr);
         gap:10px;
         padding:6px;
     }
 
     .cardPersonaje{
-        height:185px;
+        height:175px;
         border-radius:13px;
     }
 
     .nombrePersonaje{
         font-size:11px;
         padding:32px 6px 10px;
+    }
+
+    .mensajeTemporal{
+        top:43%;
+        width:85%;
+        font-size:20px;
+        padding:22px;
     }
 }
 </style>
@@ -258,91 +296,96 @@ body{
 </div>
 
 <div class="menu">
-    <button class="boton ningen" onclick="mostrarPanel('panelNingen')">NINGEN</button>
-    <button class="boton bestiario" onclick="mostrarPanel('panelBestiario')">BESTIARIO</button>
-    <button class="boton interlink" onclick="mostrarPanel('panelInterlink')">INTERLINK</button>
+    <button class="boton ningen" onclick="toggleNingen()">NINGEN</button>
+    <button class="boton bestiario" onclick="mostrarPendiente('BESTIARIO')">BESTIARIO</button>
+    <button class="boton interlink" onclick="mostrarPendiente('INTERLINK')">INTERLINK</button>
 </div>
 
-<div id="panelNingen" class="panelCentral">
+<div id="panelNingen" class="panelNingen">
 
-    <div class="cardPersonaje">
+    <div class="cardPersonaje" onclick="window.location.href='monje.html'">
         <img src="Splash Art El Monje.png">
         <div class="nombrePersonaje">EL MONJE</div>
     </div>
 
-    <div class="cardPersonaje">
+    <div class="cardPersonaje" onclick="window.location.href='arquero.html'">
         <img src="Splash Art El Arquero.png">
         <div class="nombrePersonaje">EL ARQUERO</div>
     </div>
 
-    <div class="cardPersonaje">
+    <div class="cardPersonaje" onclick="window.location.href='ogro.html'">
         <img src="Splash Art El Ogro.png">
         <div class="nombrePersonaje">EL OGRO</div>
     </div>
 
-    <div class="cardPersonaje">
+    <div class="cardPersonaje" onclick="window.location.href='patriarca.html'">
         <img src="Splash Art El Patriarca.png">
         <div class="nombrePersonaje">EL PATRIARCA</div>
     </div>
 
-    <div class="cardPersonaje">
+    <div class="cardPersonaje" onclick="window.location.href='profesor.html'">
         <img src="Splash Art El Profesor Rev 2.png">
         <div class="nombrePersonaje">EL PROFESOR</div>
     </div>
 
-    <div class="cardPersonaje">
+    <div class="cardPersonaje" onclick="window.location.href='templario.html'">
         <img src="Splash Art El Templario Rev - A.png">
         <div class="nombrePersonaje">EL TEMPLARIO</div>
     </div>
 
-    <div class="cardPersonaje">
+    <div class="cardPersonaje" onclick="window.location.href='umbral.html'">
         <img src="Splash Art El Umbral.png">
         <div class="nombrePersonaje">EL UMBRAL</div>
     </div>
 
-    <div class="cardPersonaje">
+    <div class="cardPersonaje" onclick="window.location.href='faker.html'">
         <img src="Splash Art Faker.png">
         <div class="nombrePersonaje">FAKER</div>
     </div>
 
-    <div class="cardPersonaje">
+    <div class="cardPersonaje" onclick="window.location.href='tejedora.html'">
         <img src="Splash Art La Tejedora.png">
         <div class="nombrePersonaje">LA TEJEDORA</div>
     </div>
 
-    <div class="cardPersonaje">
+    <div class="cardPersonaje" onclick="window.location.href='verdad.html'">
         <img src="Splash Art La Verdad.png">
         <div class="nombrePersonaje">LA VERDAD</div>
     </div>
 
-    <div class="cardPersonaje">
+    <div class="cardPersonaje" onclick="window.location.href='licanray.html'">
         <img src="Splash Art Lican Ray.png">
         <div class="nombrePersonaje">LICANRAY</div>
     </div>
 
-    <div class="cardPersonaje">
+    <div class="cardPersonaje" onclick="window.location.href='pubi.html'">
         <img src="Splash Art One For Pubi.png">
         <div class="nombrePersonaje">ONE FOR PUBI</div>
     </div>
 
 </div>
 
-<div id="panelBestiario" class="panelCentral"></div>
-
-<div id="panelInterlink" class="panelCentral"></div>
+<div id="mensajeTemporal" class="mensajeTemporal"></div>
 
 <script>
-function mostrarPanel(idPanel){
-    const paneles = document.querySelectorAll(".panelCentral");
-    const panelSeleccionado = document.getElementById(idPanel);
+function toggleNingen(){
+    const panelNingen = document.getElementById("panelNingen");
+    const mensaje = document.getElementById("mensajeTemporal");
 
-    paneles.forEach(panel => {
-        if(panel !== panelSeleccionado){
-            panel.classList.remove("activo");
-        }
-    });
+    mensaje.classList.remove("activo");
+    mensaje.textContent = "";
 
-    panelSeleccionado.classList.toggle("activo");
+    panelNingen.classList.toggle("activo");
+}
+
+function mostrarPendiente(nombre){
+    const panelNingen = document.getElementById("panelNingen");
+    const mensaje = document.getElementById("mensajeTemporal");
+
+    panelNingen.classList.remove("activo");
+
+    mensaje.textContent = nombre + " EN CONSTRUCCIÓN";
+    mensaje.classList.add("activo");
 }
 
 function toggleSonido(){
