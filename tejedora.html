@@ -1,99 +1,410 @@
-<section class="personaje-ficha">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAMILLE | NINGEN</title>
 
-  <h1>CAMILLE</h1>
-  <h2>La Tejedora</h2>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-  <article>
-    <h3>IDENTIDAD</h3>
-    <p><strong>Nombre:</strong> Camille</p>
-    <p><strong>Alias:</strong> La Tejedora, La Mujer de Salem, La Caminante del Fuego, Aquella que Sobrevivió a las Llamas.</p>
-    <p><strong>Raza:</strong> Tejedora</p>
-    <p><strong>Sexo:</strong> Femenino</p>
-    <p><strong>Edad aparente:</strong> 30 años</p>
-    <p><strong>Edad real:</strong> Desconocida</p>
-    <p><strong>Estado:</strong> Activa</p>
-    <p><strong>Primera aparición conocida:</strong> Salem, Massachusetts, 1692</p>
-  </article>
+body{
+    font-family:Segoe UI, sans-serif;
+    background:black;
+    color:white;
+    overflow:hidden;
+}
 
-  <article>
-    <h3>ORIGEN</h3>
-    <p>La verdadera procedencia de Camille es desconocida.</p>
-    <p>Su existencia se vuelve detectable durante los Juicios de Salem en 1692.</p>
-    <p>Existe un único testimonio no verificado de una persona que creyó haber visto a una mujer atravesar las llamas durante una ejecución.</p>
-    <p>Según su relato, el fuego parecía apartarse a medida que ella avanzaba.</p>
-    <p>Sin embargo, el propio testigo reconoció no estar seguro de lo que había visto debido al humo, el caos y la distancia.</p>
-    <p>El testimonio fue descartado y nunca pudo ser corroborado.</p>
-    <p>No se encontró ningún cuerpo. No se encontró ninguna tumba. No volvió a existir evidencia concluyente de aquella mujer.</p>
-  </article>
+#videoFondo{
+    position:fixed;
+    inset:0;
+    width:100vw;
+    height:100vh;
+    object-fit:cover;
+    z-index:-2;
+}
 
-  <article>
-    <h3>DESCRIPCIÓN</h3>
-    <p>Mujer de apariencia joven, cabello oscuro y largo, piel extremadamente pálida y ojos grises.</p>
-    <p>Su presencia suele pasar desapercibida incluso cuando se encuentra rodeada de personas.</p>
-    <p>Muchos testigos afirman recordar haberla visto, pero son incapaces de describir su rostro con precisión.</p>
-  </article>
+.capaOscura{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.62);
+    z-index:-1;
+}
 
-  <article>
-    <h3>PERSONALIDAD</h3>
-    <p>Camille es reservada, observadora y profundamente paciente.</p>
-    <p>Prefiere escuchar antes que hablar. Evita intervenir directamente en los acontecimientos y rara vez muestra emociones intensas.</p>
-    <p>Posee una profunda empatía por la humanidad, aunque mantiene distancia emocional debido a la cantidad de siglos que ha vivido.</p>
-  </article>
+.sonido{
+    position:fixed;
+    right:30px;
+    top:30px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    border:2px solid white;
+    background:rgba(0,0,0,.55);
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+    z-index:40;
+    box-shadow:0 0 12px white;
+}
 
-  <article>
-    <h3>HISTORIA</h3>
-    <p>Durante los Juicios de Salem, Camille estableció contacto con Giles Corey y Martha Corey.</p>
-    <p>Por razones desconocidas, Giles llegó a conocer una parte de la verdad que ella protegía.</p>
-    <p>Cuando ambos fueron acusados, la situación escapó de cualquier posibilidad de control. Martha fue ejecutada. Giles fue sometido a tortura.</p>
-    <p>A pesar de tener múltiples oportunidades para revelar lo que sabía, decidió guardar silencio.</p>
-    <blockquote>Más peso.</blockquote>
-    <p>Hasta el día de hoy se desconoce qué secreto decidió proteger.</p>
-    <p>Camille sobrevivió. Ellos no.</p>
-  </article>
+.titulo{
+    position:fixed;
+    top:35px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:55px;
+    letter-spacing:10px;
+    text-shadow:0 0 12px #ff8fd8,0 0 35px #7a145d;
+    z-index:5;
+}
 
-  <article>
-    <h3>HABILIDADES</h3>
-    <ul>
-      <li><strong>Tejido de Destinos:</strong> puede alterar probabilidades futuras mediante los Hilos.</li>
-      <li><strong>Lectura de Hilos:</strong> percibe conexiones invisibles entre personas, lugares y acontecimientos.</li>
-      <li><strong>Longevidad:</strong> su envejecimiento parece haberse detenido hace siglos.</li>
-      <li><strong>Memoria Perfecta:</strong> recuerda con exactitud acontecimientos ocurridos cientos de años atrás.</li>
-      <li><strong>Presencia Difusa:</strong> las personas tienen dificultades para recordar detalles específicos sobre ella.</li>
-    </ul>
-  </article>
+.subtitulo{
+    position:fixed;
+    top:110px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:16px;
+    letter-spacing:4px;
+    color:#ffd1f0;
+    text-align:center;
+    z-index:5;
+}
 
-  <article>
-    <h3>FRAGMENTOS</h3>
-    <p><strong>Fragmento asociado:</strong> Fragmento de Vida.</p>
-    <p>A diferencia de otros portadores, Camille no parece utilizar su fragmento de manera ofensiva.</p>
-    <p>Las investigaciones sugieren que el Fragmento de Vida es responsable de su extraordinaria longevidad y de la aparente detención de su envejecimiento.</p>
-    <p>Su conexión con este fragmento es considerada una de las más antiguas registradas.</p>
-    <p>La verdadera extensión de sus capacidades continúa siendo desconocida.</p>
-  </article>
+.menuLateral{
+    position:fixed;
+    left:25px;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:30;
+}
 
-  <article>
-    <h3>RELACIONES</h3>
-    <p><strong>Giles Corey:</strong> uno de los pocos humanos que conoció parte de la verdad. Protegió dicho conocimiento incluso bajo tortura. Fallecido.</p>
-    <p><strong>Martha Corey:</strong> víctima de los Juicios de Salem. Su ejecución marcó profundamente a Camille. Fallecida.</p>
-    <p><strong>Las Tejedoras:</strong> su relación con otras Tejedoras es desconocida. Algunos registros sugieren que Camille podría ser una de las más antiguas de su especie.</p>
-  </article>
+.botonNingen{
+    width:240px;
+    padding:18px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.65);
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    letter-spacing:4px;
+    cursor:pointer;
+    background:linear-gradient(90deg,#c00000,#5c0000);
+    box-shadow:0 0 8px rgba(255,255,255,.25),0 0 18px rgba(255,0,0,.35);
+    transition:.3s;
+}
 
-  <article>
-    <h3>REGISTROS</h3>
-    <p><strong>Registro 017:</strong> La Mujer de las Llamas. Primer avistamiento no confirmado durante los Juicios de Salem.</p>
-    <p><strong>Registro 143:</strong> El Silencio de Giles. Documento que vincula a Camille con Giles Corey.</p>
-    <p><strong>Registro 301:</strong> Aquella que No Envejece. Compilación de apariciones idénticas registradas entre los siglos XVII y XXI.</p>
-  </article>
+.botonFicha{
+    width:240px;
+    padding:15px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.42);
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    letter-spacing:2px;
+    cursor:pointer;
+    background:linear-gradient(135deg,#23071c,#9d2f78,#12000d);
+    box-shadow:0 0 8px rgba(255,255,255,.12),0 0 12px rgba(255,143,216,.28);
+    transition:.3s;
+}
 
-  <article>
-    <h3>CLASIFICACIÓN</h3>
-    <p><strong>Tipo:</strong> Tejedora</p>
-    <p><strong>Nivel de amenaza:</strong> ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</p>
-    <p><strong>Importancia histórica:</strong> 8/10</p>
-    <p><strong>Nivel de conocimiento:</strong> Prohibido</p>
-    <p><strong>Estado:</strong> Vigilancia pasiva</p>
-    <p><strong>Riesgo para la humanidad:</strong> Bajo</p>
-    <p><strong>Clasificación Ningen:</strong> Entidad Antigua</p>
-  </article>
+.botonNingen:hover{transform:scale(1.04)}
 
-</section>
+.botonFicha:hover{
+    transform:translateX(6px);
+    box-shadow:0 0 12px rgba(255,255,255,.25),0 0 18px rgba(255,143,216,.55);
+}
+
+.panelInfo{
+    position:fixed;
+    left:330px;
+    top:210px;
+    width:470px;
+    min-height:330px;
+    max-height:62vh;
+    overflow-y:auto;
+    padding:28px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.22);
+    background:rgba(0,0,0,.42);
+    backdrop-filter:blur(5px);
+    z-index:20;
+}
+
+.panelInfo h2{
+    font-size:25px;
+    letter-spacing:4px;
+    color:#ffd1f0;
+    margin-bottom:18px;
+}
+
+.panelInfo p{
+    font-size:16px;
+    line-height:1.65;
+    color:rgba(255,255,255,.84);
+}
+
+.zonaCentral{
+    position:fixed;
+    top:185px;
+    right:110px;
+    width:520px;
+    bottom:60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:8;
+}
+
+.splashPersonaje{
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+    filter:drop-shadow(0 0 24px rgba(255,143,216,.45));
+}
+
+@media (max-width:768px){
+
+    .titulo{
+        top:22px;
+        font-size:27px;
+        letter-spacing:4px;
+        width:90%;
+        text-align:center;
+    }
+
+    .subtitulo{
+        top:68px;
+        font-size:10px;
+        width:90%;
+        letter-spacing:2px;
+    }
+
+    .sonido{
+        width:42px;
+        height:42px;
+        right:13px;
+        top:13px;
+        font-size:20px;
+    }
+
+    .zonaCentral{
+        top:105px;
+        left:5px;
+        right:5px;
+        width:auto;
+        bottom:165px;
+        align-items:center;
+    }
+
+    .splashPersonaje{
+        max-width:96%;
+        max-height:100%;
+    }
+
+    .menuLateral{
+        left:8px;
+        top:auto;
+        bottom:8px;
+        transform:none;
+        width:46%;
+        gap:4px;
+    }
+
+    .botonNingen{
+        width:100%;
+        padding:8px;
+        font-size:14px;
+        border-radius:10px;
+        letter-spacing:3px;
+    }
+
+    .botonFicha{
+        width:100%;
+        padding:6px;
+        font-size:8.5px;
+        border-radius:9px;
+        letter-spacing:1px;
+        background:transparent;
+        border:1px solid rgba(255,255,255,.32);
+        box-shadow:none;
+    }
+
+    .panelInfo{
+        left:auto;
+        top:auto;
+        right:8px;
+        bottom:8px;
+        width:46%;
+        min-height:160px;
+        max-height:260px;
+        overflow-y:auto;
+        padding:11px;
+        border-radius:12px;
+        background:rgba(0,0,0,.28);
+    }
+
+    .panelInfo h2{
+        font-size:11px;
+        letter-spacing:1px;
+        margin-bottom:7px;
+    }
+
+    .panelInfo p{
+        font-size:9px;
+        line-height:1.35;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<video id="videoFondo" autoplay muted loop playsinline>
+    <source src="grok_video_2026-03-10-13-42-53.mp4" type="video/mp4">
+</video>
+
+<div class="capaOscura"></div>
+
+<button class="sonido" id="botonSonido" onclick="toggleSonido()">🔇</button>
+
+<div class="titulo">CAMILLE</div>
+<div class="subtitulo">Archivo NINGEN // La Tejedora de Salem</div>
+
+<div class="panelInfo">
+    <h2 id="tituloInfo">ARCHIVO</h2>
+    <p id="textoInfo">Selecciona una categoría para desplegar información de Camille.</p>
+</div>
+
+<div class="zonaCentral">
+    <img class="splashPersonaje" src="Splash Art La Tejedora.png" alt="Camille La Tejedora">
+</div>
+
+<div class="menuLateral">
+
+    <button class="botonNingen" onclick="window.location.href='index.html'">NINGEN</button>
+
+    <button class="botonFicha" onclick="mostrarInfo('IDENTIDAD')">IDENTIDAD</button>
+    <button class="botonFicha" onclick="mostrarInfo('ORIGEN')">ORIGEN</button>
+    <button class="botonFicha" onclick="mostrarInfo('DESCRIPCIÓN')">DESCRIPCIÓN</button>
+    <button class="botonFicha" onclick="mostrarInfo('PERSONALIDAD')">PERSONALIDAD</button>
+    <button class="botonFicha" onclick="mostrarInfo('HISTORIA')">HISTORIA</button>
+    <button class="botonFicha" onclick="mostrarInfo('HABILIDADES')">HABILIDADES</button>
+    <button class="botonFicha" onclick="mostrarInfo('FRAGMENTOS')">FRAGMENTOS</button>
+    <button class="botonFicha" onclick="mostrarInfo('RELACIONES')">RELACIONES</button>
+    <button class="botonFicha" onclick="mostrarInfo('REGISTROS')">REGISTROS</button>
+    <button class="botonFicha" onclick="mostrarInfo('CLASIFICACIÓN')">CLASIFICACIÓN</button>
+
+</div>
+
+<script>
+function toggleSonido(){
+    const video=document.getElementById("videoFondo");
+    const boton=document.getElementById("botonSonido");
+
+    video.muted = !video.muted;
+
+    if(video.muted){
+        boton.textContent="🔇";
+    }else{
+        video.play();
+        boton.textContent="🔊";
+    }
+}
+
+function mostrarInfo(seccion){
+    const titulo=document.getElementById("tituloInfo");
+    const texto=document.getElementById("textoInfo");
+
+    const info={
+        "IDENTIDAD":`
+            <strong>Nombre:</strong> Camille<br>
+            <strong>Alias:</strong> La Tejedora, La Mujer de Salem, La Caminante del Fuego, Aquella que Sobrevivió a las Llamas.<br>
+            <strong>Raza:</strong> Tejedora<br>
+            <strong>Sexo:</strong> Femenino<br>
+            <strong>Edad aparente:</strong> 30 años<br>
+            <strong>Edad real:</strong> Desconocida<br>
+            <strong>Estado:</strong> Activa<br>
+            <strong>Primera aparición conocida:</strong> Salem, Massachusetts, 1692.
+        `,
+
+        "ORIGEN":`
+            La verdadera procedencia de Camille es desconocida.<br><br>
+            Su existencia se vuelve detectable durante los Juicios de Salem, en 1692.<br><br>
+            Existe un único testimonio no verificado de una persona que creyó haber visto a una mujer atravesar las llamas durante una ejecución.<br><br>
+            Según su relato, el fuego parecía apartarse a medida que ella avanzaba.<br><br>
+            Sin embargo, el propio testigo reconoció no estar seguro de lo que había visto debido al humo, el caos y la distancia.<br><br>
+            El testimonio fue descartado y nunca pudo ser corroborado.
+        `,
+
+        "DESCRIPCIÓN":`
+            Mujer de apariencia joven, cabello oscuro y largo, piel extremadamente pálida y ojos grises.<br><br>
+            Su presencia suele pasar desapercibida incluso cuando se encuentra rodeada de personas.<br><br>
+            Muchos testigos afirman recordar haberla visto, pero son incapaces de describir su rostro con precisión.
+        `,
+
+        "PERSONALIDAD":`
+            Camille es reservada, observadora y profundamente paciente.<br><br>
+            Prefiere escuchar antes que hablar. Evita intervenir directamente en los acontecimientos y rara vez muestra emociones intensas.<br><br>
+            Posee una profunda empatía por la humanidad, aunque mantiene distancia emocional debido a la cantidad de siglos que ha vivido.
+        `,
+
+        "HISTORIA":`
+            Durante los Juicios de Salem, Camille estableció contacto con Giles Corey y Martha Corey.<br><br>
+            Por razones desconocidas, Giles llegó a conocer una parte de la verdad que ella protegía.<br><br>
+            Cuando ambos fueron acusados, la situación escapó de cualquier posibilidad de control. Martha fue ejecutada. Giles fue sometido a tortura.<br><br>
+            A pesar de tener múltiples oportunidades para revelar lo que sabía, decidió guardar silencio.<br><br>
+            <strong>"Más peso."</strong><br><br>
+            Hasta el día de hoy se desconoce qué secreto decidió proteger.<br><br>
+            Camille sobrevivió. Ellos no.
+        `,
+
+        "HABILIDADES":`
+            <strong>Tejido de Destinos:</strong> puede alterar probabilidades futuras mediante los Hilos.<br><br>
+            <strong>Lectura de Hilos:</strong> percibe conexiones invisibles entre personas, lugares y acontecimientos.<br><br>
+            <strong>Longevidad:</strong> su envejecimiento parece haberse detenido hace siglos.<br><br>
+            <strong>Memoria Perfecta:</strong> recuerda con exactitud acontecimientos ocurridos cientos de años atrás.<br><br>
+            <strong>Presencia Difusa:</strong> las personas tienen dificultades para recordar detalles específicos sobre ella.
+        `,
+
+        "FRAGMENTOS":`
+            <strong>Fragmento asociado:</strong> Fragmento de Vida.<br><br>
+            A diferencia de otros portadores, Camille no parece utilizar su fragmento de manera ofensiva.<br><br>
+            Las investigaciones sugieren que el Fragmento de Vida es responsable de su extraordinaria longevidad y de la aparente detención de su envejecimiento.<br><br>
+            Su conexión con este fragmento es considerada una de las más antiguas registradas.<br><br>
+            La verdadera extensión de sus capacidades continúa siendo desconocida.
+        `,
+
+        "RELACIONES":`
+            <strong>Giles Corey:</strong> uno de los pocos humanos que conoció parte de la verdad. Protegió dicho conocimiento incluso bajo tortura. Fallecido.<br><br>
+            <strong>Martha Corey:</strong> víctima de los Juicios de Salem. Su ejecución marcó profundamente a Camille. Fallecida.<br><br>
+            <strong>Las Tejedoras:</strong> su relación con otras Tejedoras es desconocida. Algunos registros sugieren que Camille podría ser una de las más antiguas de su especie.
+        `,
+
+        "REGISTROS":`
+            <strong>Registro 017:</strong> La Mujer de las Llamas. Primer avistamiento no confirmado durante los Juicios de Salem.<br><br>
+            <strong>Registro 143:</strong> El Silencio de Giles. Documento que vincula a Camille con Giles Corey.<br><br>
+            <strong>Registro 301:</strong> Aquella que No Envejece. Compilación de apariciones idénticas registradas entre los siglos XVII y XXI.
+        `,
+
+        "CLASIFICACIÓN":`
+            <strong>Tipo:</strong> Tejedora<br>
+            <strong>Nivel de amenaza:</strong> ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐<br>
+            <strong>Importancia histórica:</strong> 8/10<br>
+            <strong>Nivel de conocimiento:</strong> Prohibido<br>
+            <strong>Estado:</strong> Vigilancia pasiva<br>
+            <strong>Riesgo para la humanidad:</strong> Bajo<br>
+            <strong>Clasificación Ningen:</strong> Entidad Antigua
+        `
+    };
+
+    titulo.textContent=seccion;
+    texto.innerHTML=info[seccion];
+}
+</script>
+
+</body>
+</html>
