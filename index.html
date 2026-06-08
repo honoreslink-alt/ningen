@@ -10,8 +10,9 @@
 
 body{
     font-family:Segoe UI, sans-serif;
-    overflow:hidden;
     background:black;
+    color:white;
+    overflow:hidden;
 }
 
 #videoFondo{
@@ -27,12 +28,12 @@ body{
 .capaOscura{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,0.48);
+    background:rgba(0,0,0,0.55);
     z-index:-1;
 }
 
 .logo{
-    position:absolute;
+    position:fixed;
     top:35px;
     left:50%;
     transform:translateX(-50%);
@@ -44,7 +45,7 @@ body{
 }
 
 .subtitulo{
-    position:absolute;
+    position:fixed;
     top:155px;
     left:50%;
     transform:translateX(-50%);
@@ -63,7 +64,7 @@ body{
     display:flex;
     flex-direction:column;
     gap:20px;
-    z-index:20;
+    z-index:30;
 }
 
 .boton{
@@ -109,26 +110,22 @@ body{
     color:white;
     font-size:28px;
     cursor:pointer;
-    z-index:30;
+    z-index:40;
     box-shadow:0 0 12px white;
 }
 
-/* PANEL NINGEN */
+/* PANEL SPLASH ART */
 
 .panelNingen{
-    position:absolute;
-    top:57%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    width:min(1120px,72vw);
-    max-height:68vh;
-    overflow-y:auto;
+    position:fixed;
+    top:210px;
+    left:330px;
+    right:55px;
+    bottom:35px;
     display:none;
-    grid-template-columns:repeat(4,1fr);
-    gap:16px;
-    padding:8px;
+    overflow-y:auto;
+    padding:10px 10px 35px;
     z-index:10;
-
     scrollbar-width:none;
 }
 
@@ -137,30 +134,38 @@ body{
 }
 
 .panelNingen.activo{
+    display:block;
+}
+
+.gridPersonajes{
+    max-width:1250px;
+    margin:0 auto;
     display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
 }
 
 .cardPersonaje{
     position:relative;
-    height:230px;
-    border-radius:16px;
+    height:430px;
+    border-radius:20px;
     overflow:hidden;
     cursor:pointer;
     background:#111;
-    border:1px solid rgba(255,255,255,.16);
-    box-shadow:0 10px 25px rgba(0,0,0,.55);
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 12px 35px rgba(0,0,0,.65);
     transition:.3s;
 }
 
 .cardPersonaje:hover{
-    transform:scale(1.04);
+    transform:translateY(-6px) scale(1.02);
 }
 
 .cardPersonaje img{
     width:100%;
     height:100%;
     object-fit:cover;
-    transition:.4s;
+    transition:.45s;
 }
 
 .cardPersonaje:hover img{
@@ -172,22 +177,21 @@ body{
     left:0;
     bottom:0;
     width:100%;
-    padding:42px 8px 13px;
+    padding:70px 15px 22px;
     text-align:center;
-    color:white;
-    font-size:14px;
+    font-size:23px;
     font-weight:bold;
-    letter-spacing:1px;
+    letter-spacing:2px;
     background:linear-gradient(
         to top,
-        rgba(0,0,0,.96),
-        rgba(0,0,0,.65),
+        rgba(0,0,0,.98),
+        rgba(0,0,0,.72),
         transparent
     );
 }
 
 .mensajeTemporal{
-    position:absolute;
+    position:fixed;
     top:58%;
     left:50%;
     transform:translate(-50%,-50%);
@@ -196,7 +200,7 @@ body{
     letter-spacing:4px;
     text-align:center;
     display:none;
-    z-index:9;
+    z-index:12;
     background:rgba(0,0,0,.45);
     padding:30px 50px;
     border-radius:20px;
@@ -210,10 +214,6 @@ body{
 /* CELULAR */
 
 @media (max-width:768px){
-
-    body{
-        overflow:hidden;
-    }
 
     .logo{
         font-size:54px;
@@ -251,22 +251,27 @@ body{
     }
 
     .panelNingen{
-        top:46%;
-        width:90%;
-        max-height:50vh;
+        top:135px;
+        left:12px;
+        right:12px;
+        bottom:205px;
+        padding:5px 5px 20px;
+    }
+
+    .gridPersonajes{
         grid-template-columns:repeat(2,1fr);
-        gap:10px;
-        padding:6px;
+        gap:13px;
     }
 
     .cardPersonaje{
-        height:175px;
-        border-radius:13px;
+        height:255px;
+        border-radius:14px;
     }
 
     .nombrePersonaje{
-        font-size:11px;
-        padding:32px 6px 10px;
+        font-size:13px;
+        letter-spacing:1px;
+        padding:45px 8px 12px;
     }
 
     .mensajeTemporal{
@@ -303,64 +308,68 @@ body{
 
 <div id="panelNingen" class="panelNingen">
 
-    <div class="cardPersonaje" onclick="window.location.href='monje.html'">
-        <img src="Splash Art El Monje.png">
-        <div class="nombrePersonaje">EL MONJE</div>
-    </div>
+    <div class="gridPersonajes">
 
-    <div class="cardPersonaje" onclick="window.location.href='arquero.html'">
-        <img src="Splash Art El Arquero.png">
-        <div class="nombrePersonaje">EL ARQUERO</div>
-    </div>
+        <div class="cardPersonaje" onclick="window.location.href='monje.html'">
+            <img src="Splash Art El Monje.png">
+            <div class="nombrePersonaje">EL MONJE</div>
+        </div>
 
-    <div class="cardPersonaje" onclick="window.location.href='ogro.html'">
-        <img src="Splash Art El Ogro.png">
-        <div class="nombrePersonaje">EL OGRO</div>
-    </div>
+        <div class="cardPersonaje" onclick="window.location.href='arquero.html'">
+            <img src="Splash Art El Arquero.png">
+            <div class="nombrePersonaje">EL ARQUERO</div>
+        </div>
 
-    <div class="cardPersonaje" onclick="window.location.href='patriarca.html'">
-        <img src="Splash Art El Patriarca.png">
-        <div class="nombrePersonaje">EL PATRIARCA</div>
-    </div>
+        <div class="cardPersonaje" onclick="window.location.href='ogro.html'">
+            <img src="Splash Art El Ogro.png">
+            <div class="nombrePersonaje">EL OGRO</div>
+        </div>
 
-    <div class="cardPersonaje" onclick="window.location.href='profesor.html'">
-        <img src="Splash Art El Profesor Rev 2.png">
-        <div class="nombrePersonaje">EL PROFESOR</div>
-    </div>
+        <div class="cardPersonaje" onclick="window.location.href='patriarca.html'">
+            <img src="Splash Art El Patriarca.png">
+            <div class="nombrePersonaje">EL PATRIARCA</div>
+        </div>
 
-    <div class="cardPersonaje" onclick="window.location.href='templario.html'">
-        <img src="Splash Art El Templario Rev - A.png">
-        <div class="nombrePersonaje">EL TEMPLARIO</div>
-    </div>
+        <div class="cardPersonaje" onclick="window.location.href='profesor.html'">
+            <img src="Splash Art El Profesor Rev 2.png">
+            <div class="nombrePersonaje">EL PROFESOR</div>
+        </div>
 
-    <div class="cardPersonaje" onclick="window.location.href='umbral.html'">
-        <img src="Splash Art El Umbral.png">
-        <div class="nombrePersonaje">EL UMBRAL</div>
-    </div>
+        <div class="cardPersonaje" onclick="window.location.href='templario.html'">
+            <img src="Splash Art El Templario Rev - A.png">
+            <div class="nombrePersonaje">EL TEMPLARIO</div>
+        </div>
 
-    <div class="cardPersonaje" onclick="window.location.href='faker.html'">
-        <img src="Splash Art Faker.png">
-        <div class="nombrePersonaje">FAKER</div>
-    </div>
+        <div class="cardPersonaje" onclick="window.location.href='umbral.html'">
+            <img src="Splash Art El Umbral.png">
+            <div class="nombrePersonaje">EL UMBRAL</div>
+        </div>
 
-    <div class="cardPersonaje" onclick="window.location.href='tejedora.html'">
-        <img src="Splash Art La Tejedora.png">
-        <div class="nombrePersonaje">LA TEJEDORA</div>
-    </div>
+        <div class="cardPersonaje" onclick="window.location.href='faker.html'">
+            <img src="Splash Art Faker.png">
+            <div class="nombrePersonaje">FAKER</div>
+        </div>
 
-    <div class="cardPersonaje" onclick="window.location.href='verdad.html'">
-        <img src="Splash Art La Verdad.png">
-        <div class="nombrePersonaje">LA VERDAD</div>
-    </div>
+        <div class="cardPersonaje" onclick="window.location.href='tejedora.html'">
+            <img src="Splash Art La Tejedora.png">
+            <div class="nombrePersonaje">LA TEJEDORA</div>
+        </div>
 
-    <div class="cardPersonaje" onclick="window.location.href='licanray.html'">
-        <img src="Splash Art Lican Ray.png">
-        <div class="nombrePersonaje">LICANRAY</div>
-    </div>
+        <div class="cardPersonaje" onclick="window.location.href='verdad.html'">
+            <img src="Splash Art La Verdad.png">
+            <div class="nombrePersonaje">LA VERDAD</div>
+        </div>
 
-    <div class="cardPersonaje" onclick="window.location.href='pubi.html'">
-        <img src="Splash Art One For Pubi.png">
-        <div class="nombrePersonaje">ONE FOR PUBI</div>
+        <div class="cardPersonaje" onclick="window.location.href='licanray.html'">
+            <img src="Splash Art Lican Ray.png">
+            <div class="nombrePersonaje">LICANRAY</div>
+        </div>
+
+        <div class="cardPersonaje" onclick="window.location.href='pubi.html'">
+            <img src="Splash Art One For Pubi.png">
+            <div class="nombrePersonaje">ONE FOR PUBI</div>
+        </div>
+
     </div>
 
 </div>
