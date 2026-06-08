@@ -70,6 +70,7 @@ body{
     z-index:5;
 }
 
+/* MENÚ IZQUIERDA */
 .menuLateral{
     position:fixed;
     left:25px;
@@ -118,12 +119,41 @@ body{
     box-shadow:0 0 12px rgba(255,255,255,.25),0 0 18px rgba(216,181,109,.55);
 }
 
+/* INFO CENTRO EN PC */
+.panelInfo{
+    position:fixed;
+    left:330px;
+    top:230px;
+    width:430px;
+    min-height:300px;
+    padding:28px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.22);
+    background:rgba(0,0,0,.38);
+    backdrop-filter:blur(5px);
+    z-index:20;
+}
+
+.panelInfo h2{
+    font-size:25px;
+    letter-spacing:4px;
+    color:#e7d3a0;
+    margin-bottom:18px;
+}
+
+.panelInfo p{
+    font-size:16px;
+    line-height:1.65;
+    color:rgba(255,255,255,.84);
+}
+
+/* SPLASH DERECHA EN PC */
 .zonaCentral{
     position:fixed;
-    top:165px;
-    left:310px;
-    right:40px;
-    bottom:40px;
+    top:185px;
+    right:110px;
+    width:520px;
+    bottom:60px;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -131,40 +161,13 @@ body{
 }
 
 .splashMonje{
-    max-width:520px;
-    max-height:72vh;
+    max-width:100%;
+    max-height:100%;
     object-fit:contain;
     filter:drop-shadow(0 0 22px rgba(216,181,109,.45));
 }
 
-.panelInfo{
-    position:fixed;
-    right:40px;
-    bottom:45px;
-    width:360px;
-    min-height:150px;
-    padding:22px;
-    border-radius:18px;
-    border:1px solid rgba(255,255,255,.25);
-    background:rgba(0,0,0,.42);
-    backdrop-filter:blur(5px);
-    z-index:20;
-}
-
-.panelInfo h2{
-    font-size:20px;
-    letter-spacing:3px;
-    color:#e7d3a0;
-    margin-bottom:12px;
-}
-
-.panelInfo p{
-    font-size:14px;
-    line-height:1.5;
-    color:rgba(255,255,255,.82);
-}
-
-/* CELULAR */
+/* CELULAR - NO TOCAR MUCHO */
 @media (max-width:768px){
 
     .titulo{
@@ -194,6 +197,7 @@ body{
         top:105px;
         left:5px;
         right:5px;
+        width:auto;
         bottom:165px;
         align-items:center;
     }
@@ -232,6 +236,8 @@ body{
     }
 
     .panelInfo{
+        left:auto;
+        top:auto;
         right:8px;
         bottom:8px;
         width:46%;
@@ -268,6 +274,11 @@ body{
 <div class="titulo">EL MONJE</div>
 <div class="subtitulo">Archivo NINGEN // Registro de entidad</div>
 
+<div class="panelInfo">
+    <h2 id="tituloInfo">ARCHIVO</h2>
+    <p id="textoInfo">Selecciona una categoría para desplegar información del Monje.</p>
+</div>
+
 <div class="zonaCentral">
     <img class="splashMonje" src="Splash Art El Monje.png" alt="Splash Art El Monje">
 </div>
@@ -287,11 +298,6 @@ body{
     <button class="botonFicha" onclick="mostrarInfo('REGISTROS')">REGISTROS</button>
     <button class="botonFicha" onclick="mostrarInfo('CLASIFICACIÓN')">CLASIFICACIÓN</button>
 
-</div>
-
-<div class="panelInfo">
-    <h2 id="tituloInfo">ARCHIVO</h2>
-    <p id="textoInfo">Selecciona una categoría para desplegar información del Monje.</p>
 </div>
 
 <script>
