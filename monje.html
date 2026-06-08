@@ -96,11 +96,7 @@ body{
     transition:.3s;
 }
 
-.botonNingen:hover{
-    transform:scale(1.04);
-}
-
-.botonMonje{
+.botonFicha{
     width:240px;
     padding:15px;
     border-radius:16px;
@@ -115,7 +111,11 @@ body{
     transition:.3s;
 }
 
-.botonMonje:hover{
+.botonNingen:hover{
+    transform:scale(1.04);
+}
+
+.botonFicha:hover{
     transform:translateX(6px);
     box-shadow:0 0 12px rgba(255,255,255,.25),0 0 18px rgba(216,181,109,.55);
 }
@@ -140,54 +140,61 @@ body{
 
     .titulo{
         top:28px;
-        font-size:34px;
+        font-size:32px;
         letter-spacing:5px;
         width:90%;
         text-align:center;
     }
 
     .subtitulo{
-        top:80px;
-        font-size:12px;
+        top:78px;
+        font-size:11px;
         width:90%;
         letter-spacing:2px;
     }
 
     .sonido{
-        width:48px;
-        height:48px;
-        right:18px;
-        top:18px;
-        font-size:23px;
+        width:45px;
+        height:45px;
+        right:15px;
+        top:15px;
+        font-size:21px;
     }
 
     .mensajeCentro{
-        top:37%;
-        width:82%;
-        font-size:17px;
-        padding:20px;
+        top:35%;
+        width:78%;
+        font-size:15px;
+        padding:16px;
+        letter-spacing:2px;
     }
 
     .menuLateral{
-        left:50%;
+        left:12px;
         top:auto;
-        bottom:15px;
-        transform:translateX(-50%);
-        width:92%;
-        gap:7px;
+        bottom:10px;
+        transform:none;
+        width:155px;
+        gap:5px;
     }
 
     .botonNingen{
-        width:100%;
-        padding:12px;
-        font-size:19px;
+        width:155px;
+        padding:9px;
+        font-size:15px;
+        border-radius:12px;
+        letter-spacing:3px;
     }
 
-    .botonMonje{
-        width:100%;
-        padding:9px;
-        font-size:11px;
-        border-radius:12px;
+    .botonFicha{
+        width:155px;
+        padding:7px;
+        font-size:9px;
+        border-radius:10px;
+        letter-spacing:1px;
+        background:rgba(0,0,0,.18);
+        border:1px solid rgba(255,255,255,.32);
+        box-shadow:none;
     }
 }
 </style>
@@ -205,30 +212,24 @@ body{
 
 <div class="titulo">EL MONJE</div>
 
-<div class="subtitulo">
-    Archivo NINGEN // Registro de entidad
-</div>
+<div class="subtitulo">Archivo NINGEN // Registro de entidad</div>
 
-<div class="mensajeCentro">
-    BASE DE ARCHIVO EN CONSTRUCCIÓN
-</div>
+<div class="mensajeCentro">BASE DE ARCHIVO EN CONSTRUCCIÓN</div>
 
 <div class="menuLateral">
 
-    <button class="botonNingen" onclick="window.location.href='index.html'">
-        NINGEN
-    </button>
+    <button class="botonNingen" onclick="window.location.href='index.html'">NINGEN</button>
 
-    <button class="botonMonje">HISTORIA</button>
-    <button class="botonMonje">ORIGEN</button>
-    <button class="botonMonje">HABILIDADES</button>
-    <button class="botonMonje">REGISTROS</button>
-    <button class="botonMonje">FRAGMENTOS</button>
-    <button class="botonMonje">AVISTAMIENTOS</button>
-    <button class="botonMonje">FRASES</button>
-    <button class="botonMonje">RELACIONES</button>
-    <button class="botonMonje">GALERÍA</button>
-    <button class="botonMonje">CLASIFICACIÓN</button>
+    <button class="botonFicha">IDENTIDAD</button>
+    <button class="botonFicha">ORIGEN</button>
+    <button class="botonFicha">DESCRIPCIÓN</button>
+    <button class="botonFicha">PERSONALIDAD</button>
+    <button class="botonFicha">HISTORIA</button>
+    <button class="botonFicha">HABILIDADES</button>
+    <button class="botonFicha">FRAGMENTOS</button>
+    <button class="botonFicha">RELACIONES</button>
+    <button class="botonFicha">REGISTROS</button>
+    <button class="botonFicha">CLASIFICACIÓN</button>
 
 </div>
 
