@@ -1,1 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EL UMBRAL | NINGEN</title>
 
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:Segoe UI, sans-serif;
+    background:black;
+    color:white;
+    overflow:hidden;
+}
+
+#videoFondo{
+    position:fixed;
+    inset:0;
+    width:100vw;
+    height:100vh;
+    object-fit:cover;
+    z-index:-2;
+}
+
+.capaOscura{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.62);
+    z-index:-1;
+}
+
+.sonido{
+    position:fixed;
+    right:30px;
+    top:30px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    border:2px solid white;
+    background:rgba(0,0,0,.55);
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+    z-index:40;
+    box-shadow:0 0 12px white;
+}
+
+.titulo{
+    position:fixed;
+    top:35px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:55px;
+    letter-spacing:10px;
+    text-shadow:0 0 12px #ffffff,0 0 35px #d6b46a;
+    z-index:5;
+}
+
+.subtitulo{
+    position:fixed;
+    top:110px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:16px;
+    letter-spacing:4px;
+    color:#f5e7c8;
+    text-align:center;
+    z-index:5;
+}
+
+.menuLateral{
+    position:fixed;
+    left:25px;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:30;
+}
+
+.botonNingen{
+    width:240px;
+    padding:18px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.65);
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    letter-spacing:4px;
+    cursor:pointer;
+    background:linear-gradient(90deg,#c00000,#5c0000);
+    box-shadow:0 0 8px rgba(255,255,255,.25),0 0 18px rgba(255,0,0,.35);
+    transition:.3s;
+}
+
+.botonFicha{
+    width:240px;
+    padding:15px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.42);
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    letter-spacing:2px;
+    cursor:pointer;
+    background:linear-gradient(135deg,#070707,#3b3427,#0b0b0b);
+    box-shadow:0 0 8px rgba(255,255,255,.12),0 0 12px rgba(245,231,200,.28);
+    transition:.3s;
+}
+
+.botonNingen:hover{transform:scale(1.04)}
+
+.botonFicha:hover{
+    transform:translateX(6px);
+    box-shadow:0 0 12px rgba(255,255,255,.25),0 0 18px rgba(245,231,200,.55);
+}
+
+.panelInfo{
+    position:fixed;
+    left:330px;
+    top:210px;
+    width:470px;
+    min-height:330px;
+    max-height:62vh;
+    overflow-y:auto;
+    padding:28px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.22);
+    background:rgba(0,0,0,.42);
+    backdrop-filter:blur(5px);
+    z-index:20;
+}
+
+.panelInfo h2{
+    font-size:25px;
+    letter-spacing:4px;
+    color:#f5e7c8;
+    margin-bottom:18px;
+}
+
+.panelInfo p{
+    font-size:16px;
+    line-height:1.65;
+    color:rgba(255,255,255,.84);
+}
+
+.zonaCentral{
+    position:fixed;
+    top:185px;
+    right:110px;
+    width:520px;
+    bottom:60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:8;
+}
+
+.splashPersonaje{
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+    filter:drop-shadow(0 0 24px rgba(245,231,200,.45));
+}
+
+@media (max-width:768px){
+    .titulo{
+        top:22px;
+        font-size:27px;
+        letter-spacing:4px;
+        width:90%;
+        text-align:center;
+    }
+
+    .subtitulo{
+        top:68px;
+        font-size:10px;
+        width:90%;
+        letter-spacing:2px;
+    }
+
+    .sonido{
+        width:42px;
+        height:42px;
+        right:13px;
+        top:13px;
+        font-size:20px;
+    }
+
+    .zonaCentral{
+        top:105px;
+        left:5px;
+        right:5px;
+        width:auto;
+        bottom:165px;
+        align-items:center;
+    }
+
+    .splashPersonaje{
+        max-width:96%;
+        max-height:100%;
+    }
+
+    .menuLateral{
+        left:8px;
+        top:auto;
+        bottom:8px;
+        transform:none;
+        width:46%;
+        gap:4px;
+    }
+
+    .botonNingen{
+        width:100%;
+        padding:8px;
+        font-size:14px;
+        border-radius:10px;
+        letter-spacing:3px;
+    }
+
+    .botonFicha{
+        width:100%;
+        padding:6px;
+        font-size:8.5px;
+        border-radius:9px;
+        letter-spacing:1px;
+        background:transparent;
+        border:1px solid rgba(255,255,255,.32);
+        box-shadow:none;
+    }
+
+    .panelInfo{
+        left:auto;
+        top:auto;
+        right:8px;
+        bottom:8px;
+        width:46%;
+        min-height:160px;
+        max-height:260px;
+        overflow-y:auto;
+        padding:11px;
+        border-radius:12px;
+        background:rgba(0,0,0,.28);
+    }
+
+    .panelInfo h2{
+        font-size:11px;
+        letter-spacing:1px;
+        margin-bottom:7px;
+    }
+
+    .panelInfo p{
+        font-size:9px;
+        line-height:1.35;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<video id="videoFondo" autoplay muted loop playsinline>
+    <source src="grok_video_2026-03-10-13-42-53.mp4" type="video/mp4">
+</video>
+
+<div class="capaOscura"></div>
+
+<button class="sonido" id="botonSonido" onclick="toggleSonido()">🔇</button>
+
+<div class="titulo">EL UMBRAL</div>
+<div class="subtitulo">Archivo NINGEN // El límite entre ambos lados</div>
+
+<div class="panelInfo">
+    <h2 id="tituloInfo">ARCHIVO</h2>
+    <p id="textoInfo">Selecciona una categoría para desplegar información de El Umbral.</p>
+</div>
+
+<div class="zonaCentral">
+    <img class="splashPersonaje" src="Splash Art El Umbral.png" alt="El Umbral">
+</div>
+
+<div class="menuLateral">
+    <button class="botonNingen" onclick="window.location.href='index.html'">NINGEN</button>
+
+    <button class="botonFicha" onclick="mostrarInfo('IDENTIDAD')">IDENTIDAD</button>
+    <button class="botonFicha" onclick="mostrarInfo('ORIGEN')">ORIGEN</button>
+    <button class="botonFicha" onclick="mostrarInfo('DESCRIPCIÓN')">DESCRIPCIÓN</button>
+    <button class="botonFicha" onclick="mostrarInfo('PERSONALIDAD')">PERSONALIDAD</button>
+    <button class="botonFicha" onclick="mostrarInfo('HISTORIA')">HISTORIA</button>
+    <button class="botonFicha" onclick="mostrarInfo('HABILIDADES')">HABILIDADES</button>
+    <button class="botonFicha" onclick="mostrarInfo('FRAGMENTOS')">FRAGMENTOS</button>
+    <button class="botonFicha" onclick="mostrarInfo('RELACIONES')">RELACIONES</button>
+    <button class="botonFicha" onclick="mostrarInfo('REGISTROS')">REGISTROS</button>
+    <button class="botonFicha" onclick="mostrarInfo('CLASIFICACIÓN')">CLASIFICACIÓN</button>
+</div>
+
+<script>
+function toggleSonido(){
+    const video=document.getElementById("videoFondo");
+    const boton=document.getElementById("botonSonido");
+
+    video.muted = !video.muted;
+
+    if(video.muted){
+        boton.textContent="🔇";
+    }else{
+        video.play();
+        boton.textContent="🔊";
+    }
+}
+
+function mostrarInfo(seccion){
+    const titulo=document.getElementById("tituloInfo");
+    const texto=document.getElementById("textoInfo");
+
+    const info={
+        "IDENTIDAD":`
+            <strong>Nombre:</strong> Desconocido<br>
+            <strong>Alias:</strong> El Umbral<br>
+            <strong>Raza:</strong> Desconocida<br>
+            <strong>Sexo:</strong> Desconocido<br>
+            <strong>Edad aparente:</strong> Variable<br>
+            <strong>Edad real:</strong> ∞<br>
+            <strong>Estado:</strong> Activo<br>
+            <strong>Primera aparición conocida:</strong> anterior a cualquier registro humano.
+        `,
+
+        "ORIGEN":`
+            No existen registros confiables sobre el origen de El Umbral.<br><br>
+            Algunas culturas lo confundieron con un juez divino. Otras con una puerta. Otras con una condena.<br><br>
+            Los registros Ningen sugieren una interpretación distinta: El Umbral no conduce al juicio.<br><br>
+            El Umbral es el juicio.<br><br>
+            Su existencia parece anterior a las ideas humanas de cielo, infierno, castigo o recompensa.
+        `,
+
+        "DESCRIPCIÓN":`
+            El Umbral suele manifestarse con apariencia humanoide, aunque ningún registro confirma que esa sea su verdadera forma.<br><br>
+            Su figura parece incompleta, como si el cuerpo fuera apenas una sombra capaz de sostener presencia.<br><br>
+            A su alrededor suele aparecer un círculo de luz o energía, interpretado como límite, puerta o tránsito.<br><br>
+            Nadie ha podido determinar si esa forma es elegida por él o creada por la percepción de quien lo observa.
+        `,
+
+        "PERSONALIDAD":`
+            No existen registros suficientes para afirmar que El Umbral posea emociones humanas.<br><br>
+            No muestra ira, compasión, alegría ni tristeza de forma reconocible.<br><br>
+            Sus decisiones no parecen responder a moral, religión o justicia humana.<br><br>
+            Si posee voluntad propia, esta opera bajo criterios que ningún registro ha logrado comprender.
+        `,
+
+        "HISTORIA":`
+            Durante siglos la humanidad creyó que el destino de las almas era decidido por fuerzas superiores conocidas.<br><br>
+            Los registros Ningen contradicen esa idea.<br><br>
+            Toda alma registrada atraviesa un punto final antes de llegar a cualquier lado.<br><br>
+            Ese punto es El Umbral.<br><br>
+            No existen pruebas de que consulte, obedezca o justifique sus decisiones ante ninguna otra entidad.
+        `,
+
+        "HABILIDADES":`
+            <strong>Decisión:</strong> capacidad de determinar el destino de un alma.<br><br>
+            <strong>Presencia Absoluta:</strong> toda alma registrada termina encontrándose con él.<br><br>
+            <strong>Omnipercepción del Alma:</strong> parece conocer la totalidad de una vida al instante.<br><br>
+            <strong>Permanencia:</strong> no existen registros de creación, muerte o desgaste.<br><br>
+            <strong>Tránsito:</strong> conecta ambos lados sin pertenecer completamente a ninguno.
+        `,
+
+        "FRAGMENTOS":`
+            <strong>Fragmento asociado:</strong> Ninguno.<br><br>
+            El Umbral no posee fragmentos.<br><br>
+            No los necesita.<br><br>
+            Los fragmentos pertenecen al mundo y a sus reglas.<br><br>
+            El Umbral parece existir fuera de esas reglas.
+        `,
+
+        "RELACIONES":`
+            <strong>La Verdad:</strong> entidad asociada al otro lado del conocimiento absoluto. La naturaleza de su relación con El Umbral permanece desconocida.<br><br>
+            <strong>Las Almas:</strong> toda alma registrada termina frente a él, aunque ninguna ha regresado para describir el encuentro de forma verificable.<br><br>
+            <strong>William Tell:</strong> anomalía futura asociada a una decisión no explicada dentro de los registros del Umbral.
+        `,
+
+        "REGISTROS":`
+            <strong>Registro 001:</strong> Toda alma registrada ha pasado por El Umbral. Ninguna ha regresado para describirlo.<br><br>
+            <strong>Registro 002:</strong> No existe evidencia de que El Umbral haya cometido errores.<br><br>
+            <strong>Registro 003:</strong> La existencia de El Umbral no ha podido ser confirmada. Su ausencia tampoco.<br><br>
+            <strong>Registro 004:</strong> Ningún registro demuestra que El Umbral deba explicar sus decisiones.
+        `,
+
+        "CLASIFICACIÓN":`
+            <strong>Tipo:</strong> Entidad Límite<br>
+            <strong>Nivel de amenaza:</strong> Inclasificable<br>
+            <strong>Importancia histórica:</strong> 10/10<br>
+            <strong>Nivel de conocimiento:</strong> Prohibido<br>
+            <strong>Estado:</strong> Activo<br>
+            <strong>Riesgo para la humanidad:</strong> No aplicable<br>
+            <strong>Clasificación Ningen:</strong> Entidad Absoluta
+        `
+    };
+
+    titulo.textContent=seccion;
+    texto.innerHTML=info[seccion];
+}
+</script>
+
+</body>
+</html>
