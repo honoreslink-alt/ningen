@@ -302,8 +302,7 @@ body{
 
 <div class="menu">
     <button class="boton ningen" onclick="toggleNingen()">NINGEN</button>
-    <button class="boton bestiario" onclick="mostrarPendiente('BESTIARIO')">BESTIARIO</button>
-    <button class="boton interlink" onclick="mostrarPendiente('INTERLINK')">INTERLINK</button>
+
 </div>
 
 <div id="panelNingen" class="panelNingen">
@@ -374,27 +373,11 @@ body{
 
 </div>
 
-<div id="mensajeTemporal" class="mensajeTemporal"></div>
 
-<script>
+    <script>
 function toggleNingen(){
     const panelNingen = document.getElementById("panelNingen");
-    const mensaje = document.getElementById("mensajeTemporal");
-
-    mensaje.classList.remove("activo");
-    mensaje.textContent = "";
-
     panelNingen.classList.toggle("activo");
-}
-
-function mostrarPendiente(nombre){
-    const panelNingen = document.getElementById("panelNingen");
-    const mensaje = document.getElementById("mensajeTemporal");
-
-    panelNingen.classList.remove("activo");
-
-    mensaje.textContent = nombre + " EN CONSTRUCCIÓN";
-    mensaje.classList.add("activo");
 }
 
 function toggleSonido(){
