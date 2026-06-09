@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EL OGRO | NINGEN</title>
+<title>FRANK FORD | NINGEN</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -54,7 +54,7 @@ body{
     transform:translateX(-50%);
     font-size:55px;
     letter-spacing:10px;
-    text-shadow:0 0 12px #6eff7c,0 0 35px #145c1c;
+    text-shadow:0 0 12px #9cff8f,0 0 35px #145c12;
     z-index:5;
 }
 
@@ -65,7 +65,7 @@ body{
     transform:translateX(-50%);
     font-size:16px;
     letter-spacing:4px;
-    color:#a7ffb2;
+    color:#d8ffd1;
     text-align:center;
     z-index:5;
 }
@@ -106,8 +106,8 @@ body{
     font-weight:bold;
     letter-spacing:2px;
     cursor:pointer;
-    background:linear-gradient(135deg,#071808,#2d8a3d,#0d2a12);
-    box-shadow:0 0 8px rgba(255,255,255,.12),0 0 12px rgba(110,255,124,.28);
+    background:linear-gradient(135deg,#061f08,#23721f,#020b03);
+    box-shadow:0 0 8px rgba(255,255,255,.12),0 0 12px rgba(156,255,143,.28);
     transition:.3s;
 }
 
@@ -115,19 +115,21 @@ body{
 
 .botonFicha:hover{
     transform:translateX(6px);
-    box-shadow:0 0 12px rgba(255,255,255,.25),0 0 18px rgba(110,255,124,.55);
+    box-shadow:0 0 12px rgba(255,255,255,.25),0 0 18px rgba(156,255,143,.55);
 }
 
 .panelInfo{
     position:fixed;
     left:330px;
-    top:230px;
-    width:430px;
-    min-height:300px;
+    top:210px;
+    width:470px;
+    min-height:330px;
+    max-height:62vh;
+    overflow-y:auto;
     padding:28px;
     border-radius:20px;
     border:1px solid rgba(255,255,255,.22);
-    background:rgba(0,0,0,.38);
+    background:rgba(0,0,0,.42);
     backdrop-filter:blur(5px);
     z-index:20;
 }
@@ -135,7 +137,7 @@ body{
 .panelInfo h2{
     font-size:25px;
     letter-spacing:4px;
-    color:#a7ffb2;
+    color:#d8ffd1;
     margin-bottom:18px;
 }
 
@@ -161,15 +163,14 @@ body{
     max-width:100%;
     max-height:100%;
     object-fit:contain;
-    filter:drop-shadow(0 0 24px rgba(110,255,124,.45));
+    filter:drop-shadow(0 0 24px rgba(156,255,143,.45));
 }
 
 @media (max-width:768px){
-
     .titulo{
         top:22px;
-        font-size:30px;
-        letter-spacing:5px;
+        font-size:27px;
+        letter-spacing:4px;
         width:90%;
         text-align:center;
     }
@@ -238,9 +239,11 @@ body{
         bottom:8px;
         width:46%;
         min-height:160px;
+        max-height:260px;
+        overflow-y:auto;
         padding:11px;
         border-radius:12px;
-        background:rgba(0,0,0,.25);
+        background:rgba(0,0,0,.28);
     }
 
     .panelInfo h2{
@@ -267,20 +270,19 @@ body{
 
 <button class="sonido" id="botonSonido" onclick="toggleSonido()">🔇</button>
 
-<div class="titulo">EL OGRO</div>
-<div class="subtitulo">Archivo NINGEN // Registro de entidad colosal</div>
+<div class="titulo">FRANK FORD</div>
+<div class="subtitulo">Archivo NINGEN // El Ogro de la Fisura</div>
 
 <div class="panelInfo">
     <h2 id="tituloInfo">ARCHIVO</h2>
-    <p id="textoInfo">Selecciona una categoría para desplegar información del Ogro.</p>
+    <p id="textoInfo">Selecciona una categoría para desplegar información de Frank Ford.</p>
 </div>
 
 <div class="zonaCentral">
-    <img class="splashPersonaje" src="Splash Art El Ogro.png" alt="Splash Art El Ogro">
+    <img class="splashPersonaje" src="Splash Art El Ogro.png" alt="Frank Ford El Ogro">
 </div>
 
 <div class="menuLateral">
-
     <button class="botonNingen" onclick="window.location.href='index.html'">NINGEN</button>
 
     <button class="botonFicha" onclick="mostrarInfo('IDENTIDAD')">IDENTIDAD</button>
@@ -293,7 +295,6 @@ body{
     <button class="botonFicha" onclick="mostrarInfo('RELACIONES')">RELACIONES</button>
     <button class="botonFicha" onclick="mostrarInfo('REGISTROS')">REGISTROS</button>
     <button class="botonFicha" onclick="mostrarInfo('CLASIFICACIÓN')">CLASIFICACIÓN</button>
-
 </div>
 
 <script>
@@ -316,20 +317,92 @@ function mostrarInfo(seccion){
     const texto=document.getElementById("textoInfo");
 
     const info={
-        "IDENTIDAD":"Nombre, título, alias, raza, edad, estatura y estado actual de la entidad.",
-        "ORIGEN":"Zona de origen, territorio, primeras huellas y señales registradas.",
-        "DESCRIPCIÓN":"Aspecto físico, tamaño, fuerza visible y rasgos distintivos del Ogro.",
-        "PERSONALIDAD":"Conducta, instinto, temperamento, motivaciones y contradicciones internas.",
-        "HISTORIA":"Relato principal del Ogro dentro del universo Ningen.",
-        "HABILIDADES":"Fuerza, resistencia, técnicas, límites, debilidades y manifestaciones especiales.",
-        "FRAGMENTOS":"Relación del Ogro con fragmentos, rastros o energía desconocida.",
-        "RELACIONES":"Vínculos con otros personajes, aliados, enemigos o entidades.",
-        "REGISTROS":"Avistamientos, documentos, testimonios y archivos vinculados.",
-        "CLASIFICACIÓN":"Nivel de amenaza, categoría, estado de observación y prioridad."
+        "IDENTIDAD":`
+            <strong>Nombre:</strong> Frank Ford<br>
+            <strong>Alias:</strong> El Ogro, El Científico Corrupto, El Primer Experimento Viviente.<br>
+            <strong>Raza:</strong> Humano Alterado<br>
+            <strong>Sexo:</strong> Masculino<br>
+            <strong>Edad aparente:</strong> 58 años<br>
+            <strong>Estado:</strong> Activo<br>
+            <strong>Primera aparición conocida:</strong> Chile, 2010<br>
+            <strong>Ubicación actual:</strong> Desconocida.
+        `,
+
+        "ORIGEN":`
+            Años después de que Isaac Salvatore separara fragmentos de forma controlada, Frank Ford intentó ir más lejos.<br><br>
+            No quería dividirlos. Quería combinarlos.<br><br>
+            Su teoría era simple y peligrosa: si dos fragmentos podían coexistir en un mismo proceso, tal vez podrían generar una nueva compatibilidad.<br><br>
+            Durante el terremoto de Chile de 2010, el laboratorio donde realizaba sus pruebas colapsó parcialmente.<br><br>
+            Las fisuras abiertas en la tierra dejaron expuestos fragmentos de Fisura. Frank y su sujeto de prueba quedaron inconscientes, en contacto con restos de fragmentos combinados y con aquello que emergió desde las grietas.<br><br>
+            El resultado no fue una creación nueva. Fue una malformación irreversible.
+        `,
+
+        "DESCRIPCIÓN":`
+            Frank Ford conserva una silueta humanoide, pero su cuerpo ya no responde a proporciones humanas.<br><br>
+            Su masa muscular, piel y estructura ósea parecen haber sido forzadas a crecer de manera irregular.<br><br>
+            Su presencia transmite brutalidad, peso y deformación.<br><br>
+            Lo más inquietante no es su apariencia monstruosa, sino que detrás de ella sigue existiendo una mente científica.
+        `,
+
+        "PERSONALIDAD":`
+            Frank Ford era brillante, metódico y peligrosamente obsesivo.<br><br>
+            Su deseo de comprender los fragmentos terminó anulando cualquier límite moral.<br><br>
+            Tomó a un niño abandonado de la calle y lo convirtió en sujeto de prueba. Para Frank, ya no era un niño: era una variable, una posibilidad, una respuesta esperando aparecer.<br><br>
+            No buscaba fama ni riqueza. Buscaba conocimiento.<br><br>
+            Y estaba dispuesto a pasar por encima de la libertad, el futuro o la vida de otro ser humano para obtenerlo.
+        `,
+
+        "HISTORIA":`
+            Frank estudió durante años los registros sobre fragmentos divididos.<br><br>
+            Creía que la separación era solo el primer paso y que el verdadero avance estaba en la combinación.<br><br>
+            Para probarlo, utilizó fragmentos asociados al Alcance y a la Vida en un experimento de compatibilidad.<br><br>
+            El terremoto interrumpió el proceso y abrió fisuras bajo el laboratorio.<br><br>
+            Cuando Frank despertó, su cuerpo había cambiado. La transformación no inventó un monstruo: amplificó lo que ya vivía dentro de él.<br><br>
+            Desde ese día dejó de ser registrado como científico y comenzó a ser registrado como El Ogro.
+        `,
+
+        "HABILIDADES":`
+            <strong>Fuerza Descomunal:</strong> puede destruir estructuras mediante fuerza física directa.<br><br>
+            <strong>Resistencia Extrema:</strong> soporta daños que resultarían letales para un humano común.<br><br>
+            <strong>Adaptación Mutagénica:</strong> su cuerpo continúa alterándose para sobrevivir.<br><br>
+            <strong>Intelecto Conservado:</strong> mantiene conocimientos científicos avanzados pese a su deformación.<br><br>
+            <strong>Percepción Fragmentaria:</strong> detecta rastros de fragmentos cercanos o inestables.
+        `,
+
+        "FRAGMENTOS":`
+            <strong>Fragmentos involucrados:</strong> Alcance, Vida y Fisura.<br><br>
+            Frank intentó combinar fragmentos previamente separados, especialmente propiedades vinculadas al Alcance y la Vida.<br><br>
+            El contacto accidental con fragmentos de Fisura durante el terremoto alteró el proceso por completo.<br><br>
+            La Fisura no creó algo nuevo. Expuso y deformó lo que ya existía dentro de los cuerpos presentes.<br><br>
+            En Frank, aquello tomó la forma de un ogro.
+        `,
+
+        "RELACIONES":`
+            <strong>Ben:</strong> niño abandonado utilizado como sujeto de prueba. Sobrevivió al mismo incidente que transformó a Frank.<br><br>
+            <strong>Isaac Salvatore:</strong> sus antiguos estudios sobre división de fragmentos inspiraron indirectamente la investigación de Frank.<br><br>
+            Frank no vio personas en su laboratorio. Vio materiales, cuerpos y posibilidades.
+        `,
+
+        "REGISTROS":`
+            <strong>Registro 087:</strong> Teoría de Combinación Fragmentaria. Primer documento atribuido a Frank Ford.<br><br>
+            <strong>Registro 088:</strong> Incidente de 2010. Archivo incompleto recuperado tras el terremoto.<br><br>
+            <strong>Registro 089:</strong> Nacimiento del Ogro. Primer avistamiento posterior a la transformación.<br><br>
+            <strong>Registro 090:</strong> Lo que Había Dentro. Investigación sobre la relación entre Fisura y naturaleza interna.
+        `,
+
+        "CLASIFICACIÓN":`
+            <strong>Tipo:</strong> Humano Alterado<br>
+            <strong>Nivel de amenaza:</strong> ⭐⭐⭐⭐⭐⭐⭐⭐⭐<br>
+            <strong>Importancia histórica:</strong> 10/10<br>
+            <strong>Nivel de conocimiento:</strong> Prohibido<br>
+            <strong>Estado:</strong> Activo<br>
+            <strong>Riesgo para la humanidad:</strong> Extremo<br>
+            <strong>Clasificación Ningen:</strong> Anomalía de Fisura
+        `
     };
 
     titulo.textContent=seccion;
-    texto.textContent=info[seccion];
+    texto.innerHTML=info[seccion];
 }
 </script>
 
