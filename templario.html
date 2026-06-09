@@ -1,1 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROLAND RAGNAR | NINGEN</title>
 
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:Segoe UI, sans-serif;
+    background:black;
+    color:white;
+    overflow:hidden;
+}
+
+#videoFondo{
+    position:fixed;
+    inset:0;
+    width:100vw;
+    height:100vh;
+    object-fit:cover;
+    z-index:-2;
+}
+
+.capaOscura{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.62);
+    z-index:-1;
+}
+
+.sonido{
+    position:fixed;
+    right:30px;
+    top:30px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    border:2px solid white;
+    background:rgba(0,0,0,.55);
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+    z-index:40;
+    box-shadow:0 0 12px white;
+}
+
+.titulo{
+    position:fixed;
+    top:35px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:55px;
+    letter-spacing:10px;
+    text-shadow:0 0 12px #ffdf8a,0 0 35px #8a4b00;
+    z-index:5;
+}
+
+.subtitulo{
+    position:fixed;
+    top:110px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:16px;
+    letter-spacing:4px;
+    color:#ffe8b8;
+    text-align:center;
+    z-index:5;
+}
+
+.menuLateral{
+    position:fixed;
+    left:25px;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:30;
+}
+
+.botonNingen{
+    width:240px;
+    padding:18px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.65);
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    letter-spacing:4px;
+    cursor:pointer;
+    background:linear-gradient(90deg,#c00000,#5c0000);
+    box-shadow:0 0 8px rgba(255,255,255,.25),0 0 18px rgba(255,0,0,.35);
+    transition:.3s;
+}
+
+.botonFicha{
+    width:240px;
+    padding:15px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.42);
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    letter-spacing:2px;
+    cursor:pointer;
+    background:linear-gradient(135deg,#241303,#9b5a05,#090400);
+    box-shadow:0 0 8px rgba(255,255,255,.12),0 0 12px rgba(255,223,138,.28);
+    transition:.3s;
+}
+
+.botonNingen:hover{transform:scale(1.04)}
+
+.botonFicha:hover{
+    transform:translateX(6px);
+    box-shadow:0 0 12px rgba(255,255,255,.25),0 0 18px rgba(255,223,138,.55);
+}
+
+.panelInfo{
+    position:fixed;
+    left:330px;
+    top:210px;
+    width:470px;
+    min-height:330px;
+    max-height:62vh;
+    overflow-y:auto;
+    padding:28px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.22);
+    background:rgba(0,0,0,.42);
+    backdrop-filter:blur(5px);
+    z-index:20;
+}
+
+.panelInfo h2{
+    font-size:25px;
+    letter-spacing:4px;
+    color:#ffe8b8;
+    margin-bottom:18px;
+}
+
+.panelInfo p{
+    font-size:16px;
+    line-height:1.65;
+    color:rgba(255,255,255,.84);
+}
+
+.zonaCentral{
+    position:fixed;
+    top:185px;
+    right:110px;
+    width:520px;
+    bottom:60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:8;
+}
+
+.splashPersonaje{
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+    filter:drop-shadow(0 0 24px rgba(255,223,138,.45));
+}
+
+@media (max-width:768px){
+    .titulo{
+        top:22px;
+        font-size:27px;
+        letter-spacing:4px;
+        width:90%;
+        text-align:center;
+    }
+
+    .subtitulo{
+        top:68px;
+        font-size:10px;
+        width:90%;
+        letter-spacing:2px;
+    }
+
+    .sonido{
+        width:42px;
+        height:42px;
+        right:13px;
+        top:13px;
+        font-size:20px;
+    }
+
+    .zonaCentral{
+        top:105px;
+        left:5px;
+        right:5px;
+        width:auto;
+        bottom:165px;
+        align-items:center;
+    }
+
+    .splashPersonaje{
+        max-width:96%;
+        max-height:100%;
+    }
+
+    .menuLateral{
+        left:8px;
+        top:auto;
+        bottom:8px;
+        transform:none;
+        width:46%;
+        gap:4px;
+    }
+
+    .botonNingen{
+        width:100%;
+        padding:8px;
+        font-size:14px;
+        border-radius:10px;
+        letter-spacing:3px;
+    }
+
+    .botonFicha{
+        width:100%;
+        padding:6px;
+        font-size:8.5px;
+        border-radius:9px;
+        letter-spacing:1px;
+        background:transparent;
+        border:1px solid rgba(255,255,255,.32);
+        box-shadow:none;
+    }
+
+    .panelInfo{
+        left:auto;
+        top:auto;
+        right:8px;
+        bottom:8px;
+        width:46%;
+        min-height:160px;
+        max-height:260px;
+        overflow-y:auto;
+        padding:11px;
+        border-radius:12px;
+        background:rgba(0,0,0,.28);
+    }
+
+    .panelInfo h2{
+        font-size:11px;
+        letter-spacing:1px;
+        margin-bottom:7px;
+    }
+
+    .panelInfo p{
+        font-size:9px;
+        line-height:1.35;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<video id="videoFondo" autoplay muted loop playsinline>
+    <source src="grok_video_2026-03-10-13-42-53.mp4" type="video/mp4">
+</video>
+
+<div class="capaOscura"></div>
+
+<button class="sonido" id="botonSonido" onclick="toggleSonido()">🔇</button>
+
+<div class="titulo">ROLAND RAGNAR</div>
+<div class="subtitulo">Archivo NINGEN // El Templario</div>
+
+<div class="panelInfo">
+    <h2 id="tituloInfo">ARCHIVO</h2>
+    <p id="textoInfo">Selecciona una categoría para desplegar información de Roland Ragnar.</p>
+</div>
+
+<div class="zonaCentral">
+    <img class="splashPersonaje" src="Splash Art El Templario Rev - A.png" alt="Roland Ragnar El Templario">
+</div>
+
+<div class="menuLateral">
+    <button class="botonNingen" onclick="window.location.href='index.html'">NINGEN</button>
+
+    <button class="botonFicha" onclick="mostrarInfo('IDENTIDAD')">IDENTIDAD</button>
+    <button class="botonFicha" onclick="mostrarInfo('ORIGEN')">ORIGEN</button>
+    <button class="botonFicha" onclick="mostrarInfo('DESCRIPCIÓN')">DESCRIPCIÓN</button>
+    <button class="botonFicha" onclick="mostrarInfo('PERSONALIDAD')">PERSONALIDAD</button>
+    <button class="botonFicha" onclick="mostrarInfo('HISTORIA')">HISTORIA</button>
+    <button class="botonFicha" onclick="mostrarInfo('HABILIDADES')">HABILIDADES</button>
+    <button class="botonFicha" onclick="mostrarInfo('FRAGMENTOS')">FRAGMENTOS</button>
+    <button class="botonFicha" onclick="mostrarInfo('RELACIONES')">RELACIONES</button>
+    <button class="botonFicha" onclick="mostrarInfo('REGISTROS')">REGISTROS</button>
+    <button class="botonFicha" onclick="mostrarInfo('CLASIFICACIÓN')">CLASIFICACIÓN</button>
+</div>
+
+<script>
+function toggleSonido(){
+    const video=document.getElementById("videoFondo");
+    const boton=document.getElementById("botonSonido");
+
+    video.muted = !video.muted;
+
+    if(video.muted){
+        boton.textContent="🔇";
+    }else{
+        video.play();
+        boton.textContent="🔊";
+    }
+}
+
+function mostrarInfo(seccion){
+    const titulo=document.getElementById("tituloInfo");
+    const texto=document.getElementById("textoInfo");
+
+    const info={
+        "IDENTIDAD":`
+            <strong>Nombre:</strong> Roland Ragnar<br>
+            <strong>Alias:</strong> El Templario, El Escudo del Patriarca, El Guardián, El Último Muro.<br>
+            <strong>Raza:</strong> Humano<br>
+            <strong>Sexo:</strong> Masculino<br>
+            <strong>Edad aparente:</strong> 40 años<br>
+            <strong>Edad real:</strong> 65 años<br>
+            <strong>Estado:</strong> Activo<br>
+            <strong>Primera aparición conocida:</strong> Orden Patriarcal.
+        `,
+
+        "ORIGEN":`
+            Roland Ragnar nació con capacidades físicas excepcionales.<br><br>
+            A los ocho años ya podía derrotar a adultos entrenados, por lo que fue aceptado dentro de la Orden Templaria a una edad imposible.<br><br>
+            Poco después se detectó su compatibilidad con el Fragmento de Energía.<br><br>
+            Desde entonces su entrenamiento tuvo un solo propósito: convertirse en el muro entre el Patriarca y cualquier amenaza.
+        `,
+
+        "DESCRIPCIÓN":`
+            Hombre de gran estatura, cuerpo poderoso y presencia intimidante.<br><br>
+            A pesar de su apariencia, suele mostrar una actitud relajada y casi infantil.<br><br>
+            Sus cicatrices superan ampliamente las de otros templarios registrados.<br><br>
+            La mayoría fueron obtenidas protegiendo a otros.
+        `,
+
+        "PERSONALIDAD":`
+            Roland es simple, directo y de corazón limpio.<br><br>
+            No disfruta de discusiones complejas ni estrategias demasiado elaboradas.<br><br>
+            Muchos lo consideran ingenuo. Otros, directamente tonto.<br><br>
+            Pero quienes lo han visto pelear entienden que su mente no necesita complicarse cuando su cuerpo ya decidió proteger.
+        `,
+
+        "HISTORIA":`
+            Durante décadas Roland permaneció junto al Patriarca.<br><br>
+            Mientras otros templarios buscaron cargos, reconocimiento o liderazgo, Roland eligió permanecer cerca de Enoc.<br><br>
+            Rechazó ascensos dentro de la Orden y mantuvo una función simple: proteger.<br><br>
+            Los ataques documentados contra el Patriarca rara vez llegaron a su objetivo.<br><br>
+            Antes de Enoc, siempre estaba Roland.
+        `,
+
+        "HABILIDADES":`
+            <strong>Fragmento de Energía:</strong> potencia fuerza, velocidad, resistencia y reacción física.<br><br>
+            <strong>Fuerza Bruta:</strong> puede enfrentarse a enemigos físicamente superiores sin retroceder.<br><br>
+            <strong>Resistencia Extrema:</strong> continúa peleando incluso con heridas incapacitantes.<br><br>
+            <strong>Instinto Protector:</strong> se interpone ante el peligro sin esperar órdenes.<br><br>
+            <strong>Combate Templario:</strong> entrenamiento especializado de la Orden Patriarcal.
+        `,
+
+        "FRAGMENTOS":`
+            <strong>Fragmento asociado:</strong> Energía.<br><br>
+            Roland utiliza el fragmento de forma directa y corporal.<br><br>
+            A diferencia de Enoc, no acumula energía para establecer contacto con entidades superiores.<br><br>
+            Su cuerpo convierte la energía en movimiento, fuerza, reflejos y resistencia.<br><br>
+            La exposición prolongada al Patriarca también parece haber ralentizado su envejecimiento.
+        `,
+
+        "RELACIONES":`
+            <strong>Enoc:</strong> Patriarca al que juró proteger. Permanece a su lado desde hace décadas.<br><br>
+            <strong>Orden Templaria:</strong> organización que lo formó desde niño.<br><br>
+            <strong>Agresores del Patriarca:</strong> la mayoría de los registros indica que nunca llegaron a enfrentarse directamente con Enoc.
+        `,
+
+        "REGISTROS":`
+            <strong>Registro 511:</strong> El Juramento. A los ocho años Roland solicitó permanecer dentro de la Orden.<br><br>
+            <strong>Registro 644:</strong> La Muralla. Durante un ataque contra el Patriarca, Roland permaneció de pie pese a múltiples heridas críticas.<br><br>
+            <strong>Registro 812:</strong> Observación. Roland rara vez comprende por qué debe proteger algo. Simplemente lo hace.
+        `,
+
+        "CLASIFICACIÓN":`
+            <strong>Tipo:</strong> Humano<br>
+            <strong>Nivel de amenaza:</strong> ⭐⭐⭐⭐⭐⭐⭐⭐<br>
+            <strong>Importancia histórica:</strong> 7/10<br>
+            <strong>Nivel de conocimiento:</strong> Restringido<br>
+            <strong>Estado:</strong> Activo<br>
+            <strong>Riesgo para la humanidad:</strong> Bajo<br>
+            <strong>Clasificación Ningen:</strong> Templario de Energía
+        `
+    };
+
+    titulo.textContent=seccion;
+    texto.innerHTML=info[seccion];
+}
+</script>
+
+</body>
+</html>
