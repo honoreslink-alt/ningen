@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EL MONJE | NINGEN</title>
+<title>WILLIAM TELL | NINGEN</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -54,7 +54,7 @@ body{
     transform:translateX(-50%);
     font-size:55px;
     letter-spacing:10px;
-    text-shadow:0 0 12px #d8b56d,0 0 35px #7a4a18;
+    text-shadow:0 0 12px #9fd6ff,0 0 35px #0b3f6f;
     z-index:5;
 }
 
@@ -65,12 +65,11 @@ body{
     transform:translateX(-50%);
     font-size:16px;
     letter-spacing:4px;
-    color:#e7d3a0;
+    color:#c9ecff;
     text-align:center;
     z-index:5;
 }
 
-/* MENÚ IZQUIERDA */
 .menuLateral{
     position:fixed;
     left:25px;
@@ -107,8 +106,8 @@ body{
     font-weight:bold;
     letter-spacing:2px;
     cursor:pointer;
-    background:linear-gradient(135deg,#3b230d,#b28745,#4d2d0f);
-    box-shadow:0 0 8px rgba(255,255,255,.12),0 0 12px rgba(178,135,69,.25);
+    background:linear-gradient(135deg,#061520,#14577a,#02070b);
+    box-shadow:0 0 8px rgba(255,255,255,.12),0 0 12px rgba(159,214,255,.28);
     transition:.3s;
 }
 
@@ -116,20 +115,21 @@ body{
 
 .botonFicha:hover{
     transform:translateX(6px);
-    box-shadow:0 0 12px rgba(255,255,255,.25),0 0 18px rgba(216,181,109,.55);
+    box-shadow:0 0 12px rgba(255,255,255,.25),0 0 18px rgba(159,214,255,.55);
 }
 
-/* INFO CENTRO EN PC */
 .panelInfo{
     position:fixed;
     left:330px;
-    top:230px;
-    width:430px;
-    min-height:300px;
+    top:210px;
+    width:470px;
+    min-height:330px;
+    max-height:62vh;
+    overflow-y:auto;
     padding:28px;
     border-radius:20px;
     border:1px solid rgba(255,255,255,.22);
-    background:rgba(0,0,0,.38);
+    background:rgba(0,0,0,.42);
     backdrop-filter:blur(5px);
     z-index:20;
 }
@@ -137,7 +137,7 @@ body{
 .panelInfo h2{
     font-size:25px;
     letter-spacing:4px;
-    color:#e7d3a0;
+    color:#c9ecff;
     margin-bottom:18px;
 }
 
@@ -147,7 +147,6 @@ body{
     color:rgba(255,255,255,.84);
 }
 
-/* SPLASH DERECHA EN PC */
 .zonaCentral{
     position:fixed;
     top:185px;
@@ -160,20 +159,18 @@ body{
     z-index:8;
 }
 
-.splashMonje{
+.splashPersonaje{
     max-width:100%;
     max-height:100%;
     object-fit:contain;
-    filter:drop-shadow(0 0 22px rgba(216,181,109,.45));
+    filter:drop-shadow(0 0 24px rgba(159,214,255,.45));
 }
 
-/* CELULAR - NO TOCAR MUCHO */
 @media (max-width:768px){
-
     .titulo{
         top:22px;
-        font-size:30px;
-        letter-spacing:5px;
+        font-size:27px;
+        letter-spacing:4px;
         width:90%;
         text-align:center;
     }
@@ -202,7 +199,7 @@ body{
         align-items:center;
     }
 
-    .splashMonje{
+    .splashPersonaje{
         max-width:96%;
         max-height:100%;
     }
@@ -242,9 +239,11 @@ body{
         bottom:8px;
         width:46%;
         min-height:160px;
+        max-height:260px;
+        overflow-y:auto;
         padding:11px;
         border-radius:12px;
-        background:rgba(0,0,0,.25);
+        background:rgba(0,0,0,.28);
     }
 
     .panelInfo h2{
@@ -271,20 +270,19 @@ body{
 
 <button class="sonido" id="botonSonido" onclick="toggleSonido()">🔇</button>
 
-<div class="titulo">EL MONJE</div>
-<div class="subtitulo">Archivo NINGEN // Registro de entidad</div>
+<div class="titulo">WILLIAM TELL</div>
+<div class="subtitulo">Archivo NINGEN // El Monje del Silencio Interior</div>
 
 <div class="panelInfo">
     <h2 id="tituloInfo">ARCHIVO</h2>
-    <p id="textoInfo">Selecciona una categoría para desplegar información del Monje.</p>
+    <p id="textoInfo">Selecciona una categoría para desplegar información de William Tell.</p>
 </div>
 
 <div class="zonaCentral">
-    <img class="splashMonje" src="Splash Art El Monje.png" alt="Splash Art El Monje">
+    <img class="splashPersonaje" src="Splash Art El Monje.png" alt="William Tell El Monje">
 </div>
 
 <div class="menuLateral">
-
     <button class="botonNingen" onclick="window.location.href='index.html'">NINGEN</button>
 
     <button class="botonFicha" onclick="mostrarInfo('IDENTIDAD')">IDENTIDAD</button>
@@ -297,7 +295,6 @@ body{
     <button class="botonFicha" onclick="mostrarInfo('RELACIONES')">RELACIONES</button>
     <button class="botonFicha" onclick="mostrarInfo('REGISTROS')">REGISTROS</button>
     <button class="botonFicha" onclick="mostrarInfo('CLASIFICACIÓN')">CLASIFICACIÓN</button>
-
 </div>
 
 <script>
@@ -320,20 +317,88 @@ function mostrarInfo(seccion){
     const texto=document.getElementById("textoInfo");
 
     const info={
-        "IDENTIDAD":"Nombre, título, alias, raza, edad, estatura y estado actual de la entidad.",
-        "ORIGEN":"Ciudad de origen, región, facción y primeras señales registradas.",
-        "DESCRIPCIÓN":"Aspecto físico, vestimenta y rasgos distintivos del Monje.",
-        "PERSONALIDAD":"Conducta, forma de hablar, motivaciones y contradicciones internas.",
-        "HISTORIA":"Relato principal del personaje dentro del universo Ningen.",
-        "HABILIDADES":"Técnicas, dones, límites, debilidades y manifestaciones especiales.",
-        "FRAGMENTOS":"Relación del Monje con fragmentos, rastros o energía desconocida.",
-        "RELACIONES":"Vínculos con otros personajes, aliados, enemigos o entidades.",
-        "REGISTROS":"Avistamientos, documentos, testimonios y archivos vinculados.",
-        "CLASIFICACIÓN":"Nivel de amenaza, categoría, estado de observación y prioridad."
+        "IDENTIDAD":`
+            <strong>Nombre:</strong> William Tell<br>
+            <strong>Alias:</strong> El Monje, El Bastón Silencioso, El Hermano Vendado.<br>
+            <strong>Raza:</strong> Humano<br>
+            <strong>Sexo:</strong> Masculino<br>
+            <strong>Edad:</strong> Desconocida<br>
+            <strong>Estado:</strong> Activo<br>
+            <strong>Arma principal:</strong> Bastón de combate<br>
+            <strong>Primera aparición conocida:</strong> Registro de los Hermanos Tell.
+        `,
+
+        "ORIGEN":`
+            William Tell fue recordado durante siglos como una figura secundaria dentro de la leyenda de Guillermo Tell.<br><br>
+            La historia oficial decía que bajo la manzana había un niño. Los Registros Ningen revelan otra verdad: era William, el hermano menor de Guillermo.<br><br>
+            Aquel día, William estaba vendado. No vio la flecha. No vio la expresión de su hermano. No vio la segunda flecha oculta.<br><br>
+            Sobrevivió al disparo, pero algo dentro de él quedó detenido para siempre.
+        `,
+
+        "DESCRIPCIÓN":`
+            Hombre de apariencia serena, postura recta y movimientos controlados.<br><br>
+            Viste ropas simples, generalmente oscuras o gastadas por el viaje.<br><br>
+            Porta un bastón largo, aparentemente común, aunque los registros indican que con él puede enfrentar armas mucho más peligrosas.<br><br>
+            Su mirada transmite calma, pero no paz.
+        `,
+
+        "PERSONALIDAD":`
+            William es disciplinado, silencioso y extremadamente observador.<br><br>
+            A primera vista parece un hombre en completo control de sí mismo, pero su serenidad oculta una herida antigua.<br><br>
+            No fue corrompido por odio inmediato. Fue consumido lentamente por una pregunta que nunca pudo responder.<br><br>
+            Su mayor virtud es la disciplina. Su mayor peligro es que puede confundir silencio con paz.
+        `,
+
+        "HISTORIA":`
+            William fue entrenado por Isaac Salvatore, el maestro conocido como El Profesor.<br><br>
+            Mientras Guillermo perfeccionó el arco y el alcance, William dedicó su vida al combate cuerpo a cuerpo y al dominio del bastón.<br><br>
+            Tras el incidente de la manzana, la humanidad celebró a Guillermo como héroe. William, en cambio, quedó convertido en una sombra dentro de la misma historia.<br><br>
+            Nunca supo que su hermano había tomado una segunda flecha. Nunca supo que, si el disparo fallaba, Guillermo estaba dispuesto a matar al hombre que los obligó.<br><br>
+            Con los años, William buscó paz en la disciplina. Pero cuanto más miraba hacia dentro, más encontraba la misma herida.<br><br>
+            La tragedia fue que los dos hermanos se amaban, pero el silencio los separó antes que la muerte.
+        `,
+
+        "HABILIDADES":`
+            <strong>Combate con Bastón:</strong> dominio absoluto del combate cuerpo a cuerpo utilizando un solo bastón.<br><br>
+            <strong>Disciplina Corporal:</strong> control extremo de respiración, postura, equilibrio y resistencia.<br><br>
+            <strong>Lectura de Movimiento:</strong> capacidad de anticipar ataques observando mínimos cambios en el cuerpo del rival.<br><br>
+            <strong>Defensa Circular:</strong> técnica que convierte el bastón en una barrera móvil alrededor de su cuerpo.<br><br>
+            <strong>Silencio Interior:</strong> habilidad para reducir miedo, dolor y distracciones durante el combate.
+        `,
+
+        "FRAGMENTOS":`
+            <strong>Fragmento asociado:</strong> No confirmado.<br><br>
+            Algunos registros sugieren que William entró en contacto con un fragmento vinculado a la Fisura.<br><br>
+            Este fragmento no habría creado su oscuridad, sino que habría encontrado una grieta que ya existía dentro de él.<br><br>
+            La teoría principal indica que William no buscaba poder. Buscaba una respuesta.<br><br>
+            Y algunas respuestas, dentro del universo Ningen, tienen un precio.
+        `,
+
+        "RELACIONES":`
+            <strong>Guillermo Tell:</strong> hermano mayor. William sobrevivió gracias a su disparo, pero nunca conoció toda la verdad de aquel día.<br><br>
+            <strong>Isaac Salvatore:</strong> maestro de ambos hermanos. Fue quien formó a William en disciplina, combate y control interior.<br><br>
+            William rara vez habla de ellos. Cuando lo hace, evita usar títulos. Solo dice: mi hermano y mi maestro.
+        `,
+
+        "REGISTROS":`
+            <strong>Registro 044:</strong> El Hermano Vendado. Documento que revela la identidad real de quien estuvo bajo la manzana.<br><br>
+            <strong>Registro 045:</strong> El Bastón Silencioso. Primer registro de William como combatiente independiente.<br><br>
+            <strong>Registro 046:</strong> La Pregunta sin Respuesta. Archivo restringido sobre el deterioro interior de William Tell.
+        `,
+
+        "CLASIFICACIÓN":`
+            <strong>Tipo:</strong> Humano<br>
+            <strong>Nivel de amenaza:</strong> ⭐⭐⭐⭐⭐⭐⭐⭐<br>
+            <strong>Importancia histórica:</strong> 8/10<br>
+            <strong>Nivel de conocimiento:</strong> Restringido<br>
+            <strong>Estado:</strong> Activo<br>
+            <strong>Riesgo para la humanidad:</strong> Medio<br>
+            <strong>Clasificación Ningen:</strong> Monje Errante
+        `
     };
 
     titulo.textContent=seccion;
-    texto.textContent=info[seccion];
+    texto.innerHTML=info[seccion];
 }
 </script>
 
