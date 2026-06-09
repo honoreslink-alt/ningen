@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISAAC SALVATORE | NINGEN</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:Segoe UI, sans-serif;
+    background:black;
+    color:white;
+    overflow:hidden;
+}
+
+#videoFondo{
+    position:fixed;
+    inset:0;
+    width:100vw;
+    height:100vh;
+    object-fit:cover;
+    z-index:-2;
+}
+
+.capaOscura{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.62);
+    z-index:-1;
+}
+
+.sonido{
+    position:fixed;
+    right:30px;
+    top:30px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    border:2px solid white;
+    background:rgba(0,0,0,.55);
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+    z-index:40;
+    box-shadow:0 0 12px white;
+}
+
+.titulo{
+    position:fixed;
+    top:35px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:55px;
+    letter-spacing:10px;
+    text-shadow:0 0 12px #d8c7ff,0 0 35px #3f2374;
+    z-index:5;
+}
+
+.subtitulo{
+    position:fixed;
+    top:110px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:16px;
+    letter-spacing:4px;
+    color:#e6dbff;
+    text-align:center;
+    z-index:5;
+}
+
+.menuLateral{
+    position:fixed;
+    left:25px;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:30;
+}
+
+.botonNingen{
+    width:240px;
+    padding:18px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.65);
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    letter-spacing:4px;
+    cursor:pointer;
+    background:linear-gradient(90deg,#c00000,#5c0000);
+    box-shadow:0 0 8px rgba(255,255,255,.25),0 0 18px rgba(255,0,0,.35);
+    transition:.3s;
+}
+
+.botonFicha{
+    width:240px;
+    padding:15px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.42);
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    letter-spacing:2px;
+    cursor:pointer;
+    background:linear-gradient(135deg,#10091f,#5b3fa3,#080411);
+    box-shadow:0 0 8px rgba(255,255,255,.12),0 0 12px rgba(216,199,255,.28);
+    transition:.3s;
+}
+
+.botonNingen:hover{transform:scale(1.04)}
+
+.botonFicha:hover{
+    transform:translateX(6px);
+    box-shadow:0 0 12px rgba(255,255,255,.25),0 0 18px rgba(216,199,255,.55);
+}
+
+.panelInfo{
+    position:fixed;
+    left:330px;
+    top:210px;
+    width:470px;
+    min-height:330px;
+    max-height:62vh;
+    overflow-y:auto;
+    padding:28px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.22);
+    background:rgba(0,0,0,.42);
+    backdrop-filter:blur(5px);
+    z-index:20;
+}
+
+.panelInfo h2{
+    font-size:25px;
+    letter-spacing:4px;
+    color:#e6dbff;
+    margin-bottom:18px;
+}
+
+.panelInfo p{
+    font-size:16px;
+    line-height:1.65;
+    color:rgba(255,255,255,.84);
+}
+
+.zonaCentral{
+    position:fixed;
+    top:185px;
+    right:110px;
+    width:520px;
+    bottom:60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:8;
+}
+
+.splashPersonaje{
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+    filter:drop-shadow(0 0 24px rgba(216,199,255,.45));
+}
+
+@media (max-width:768px){
+    .titulo{
+        top:22px;
+        font-size:27px;
+        letter-spacing:4px;
+        width:90%;
+        text-align:center;
+    }
+
+    .subtitulo{
+        top:68px;
+        font-size:10px;
+        width:90%;
+        letter-spacing:2px;
+    }
+
+    .sonido{
+        width:42px;
+        height:42px;
+        right:13px;
+        top:13px;
+        font-size:20px;
+    }
+
+    .zonaCentral{
+        top:105px;
+        left:5px;
+        right:5px;
+        width:auto;
+        bottom:165px;
+        align-items:center;
+    }
+
+    .splashPersonaje{
+        max-width:96%;
+        max-height:100%;
+    }
+
+    .menuLateral{
+        left:8px;
+        top:auto;
+        bottom:8px;
+        transform:none;
+        width:46%;
+        gap:4px;
+    }
+
+    .botonNingen{
+        width:100%;
+        padding:8px;
+        font-size:14px;
+        border-radius:10px;
+        letter-spacing:3px;
+    }
+
+    .botonFicha{
+        width:100%;
+        padding:6px;
+        font-size:8.5px;
+        border-radius:9px;
+        letter-spacing:1px;
+        background:transparent;
+        border:1px solid rgba(255,255,255,.32);
+        box-shadow:none;
+    }
+
+    .panelInfo{
+        left:auto;
+        top:auto;
+        right:8px;
+        bottom:8px;
+        width:46%;
+        min-height:160px;
+        max-height:260px;
+        overflow-y:auto;
+        padding:11px;
+        border-radius:12px;
+        background:rgba(0,0,0,.28);
+    }
+
+    .panelInfo h2{
+        font-size:11px;
+        letter-spacing:1px;
+        margin-bottom:7px;
+    }
+
+    .panelInfo p{
+        font-size:9px;
+        line-height:1.35;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<video id="videoFondo" autoplay muted loop playsinline>
+    <source src="grok_video_2026-03-10-13-42-53.mp4" type="video/mp4">
+</video>
+
+<div class="capaOscura"></div>
+
+<button class="sonido" id="botonSonido" onclick="toggleSonido()">🔇</button>
+
+<div class="titulo">ISAAC SALVATORE</div>
+<div class="subtitulo">Archivo NINGEN // El Profesor del Alcance</div>
+
+<div class="panelInfo">
+    <h2 id="tituloInfo">ARCHIVO</h2>
+    <p id="textoInfo">Selecciona una categoría para desplegar información de Isaac Salvatore.</p>
+</div>
+
+<div class="zonaCentral">
+    <img class="splashPersonaje" src="Splash Art El Profesor.png" alt="Isaac Salvatore El Profesor">
+</div>
+
+<div class="menuLateral">
+    <button class="botonNingen" onclick="window.location.href='index.html'">NINGEN</button>
+
+    <button class="botonFicha" onclick="mostrarInfo('IDENTIDAD')">IDENTIDAD</button>
+    <button class="botonFicha" onclick="mostrarInfo('ORIGEN')">ORIGEN</button>
+    <button class="botonFicha" onclick="mostrarInfo('DESCRIPCIÓN')">DESCRIPCIÓN</button>
+    <button class="botonFicha" onclick="mostrarInfo('PERSONALIDAD')">PERSONALIDAD</button>
+    <button class="botonFicha" onclick="mostrarInfo('HISTORIA')">HISTORIA</button>
+    <button class="botonFicha" onclick="mostrarInfo('HABILIDADES')">HABILIDADES</button>
+    <button class="botonFicha" onclick="mostrarInfo('FRAGMENTOS')">FRAGMENTOS</button>
+    <button class="botonFicha" onclick="mostrarInfo('RELACIONES')">RELACIONES</button>
+    <button class="botonFicha" onclick="mostrarInfo('REGISTROS')">REGISTROS</button>
+    <button class="botonFicha" onclick="mostrarInfo('CLASIFICACIÓN')">CLASIFICACIÓN</button>
+</div>
+
+<script>
+function toggleSonido(){
+    const video=document.getElementById("videoFondo");
+    const boton=document.getElementById("botonSonido");
+
+    video.muted = !video.muted;
+
+    if(video.muted){
+        boton.textContent="🔇";
+    }else{
+        video.play();
+        boton.textContent="🔊";
+    }
+}
+
+function mostrarInfo(seccion){
+    const titulo=document.getElementById("tituloInfo");
+    const texto=document.getElementById("textoInfo");
+
+    const info={
+        "IDENTIDAD":`
+            <strong>Nombre:</strong> Isaac Salvatore<br>
+            <strong>Alias:</strong> El Profesor, El Maestro del Alcance, El Hombre que Dividió el Fragmento.<br>
+            <strong>Raza:</strong> Humano<br>
+            <strong>Sexo:</strong> Masculino<br>
+            <strong>Edad:</strong> Desconocida<br>
+            <strong>Estado:</strong> Activo<br>
+            <strong>Ubicación actual:</strong> Cordillera del Himalaya<br>
+            <strong>Primera aparición conocida:</strong> Registro del Maestro Sin Escuela.
+        `,
+
+        "ORIGEN":`
+            Isaac Salvatore no fundó una orden ni levantó un templo.<br><br>
+            Su enseñanza comenzó en rutas, refugios y montañas donde nadie buscaba gloria.<br><br>
+            Los primeros registros lo ubican en zonas aisladas del Himalaya, estudiando fragmentos antiguos y entrenando a discípulos que no encajaban en ninguna escuela conocida.<br><br>
+            Para Isaac, enseñar no era transmitir técnicas. Era descubrir hasta dónde podía llegar una persona antes de romperse.
+        `,
+
+        "DESCRIPCIÓN":`
+            Hombre de edad difícil de determinar, mirada tranquila y presencia pesada.<br><br>
+            Viste ropas simples, generalmente cubiertas por capas de viaje.<br><br>
+            No porta armas visibles. Sus manos suelen permanecer ocultas dentro de las mangas.<br><br>
+            Quienes lo han visto coinciden en una sensación: Isaac parece estar siempre midiendo una distancia que nadie más puede ver.
+        `,
+
+        "PERSONALIDAD":`
+            Isaac es sereno, exigente y difícil de impresionar.<br><br>
+            Habla poco, pero cada frase parece haber sido pensada durante años.<br><br>
+            No consuela con facilidad. No entrega respuestas completas. Prefiere que sus discípulos descubran la verdad aunque eso les duela.<br><br>
+            Su mayor virtud es la comprensión. Su mayor defecto es creer que todos pueden soportar el peso de comprender.
+        `,
+
+        "HISTORIA":`
+            Isaac Salvatore fue el maestro de dos discípulos que tomarían caminos opuestos.<br><br>
+            A uno le enseñó la distancia. Al otro, el cuerpo.<br><br>
+            Durante años estudió el Fragmento de Alcance, hasta concluir que su poder completo era demasiado peligroso para un solo portador.<br><br>
+            Por eso lo dividió.<br><br>
+            No buscaba crear héroes. Buscaba evitar que el alcance absoluto cayera en manos equivocadas.<br><br>
+            El resultado fue una leyenda partida en dos.
+        `,
+
+        "HABILIDADES":`
+            <strong>Lectura de Alcance:</strong> puede percibir límites físicos, emocionales y espirituales en otras personas.<br><br>
+            <strong>Maestría Técnica:</strong> domina principios de combate, respiración, equilibrio y trayectoria.<br><br>
+            <strong>Enseñanza Adaptativa:</strong> transforma su método según la herida, talento o debilidad del discípulo.<br><br>
+            <strong>Control del Fragmento:</strong> logró dividir el Fragmento de Alcance sin destruirlo.<br><br>
+            <strong>Presencia Disuasiva:</strong> rara vez necesita pelear; su sola calma suele detener conflictos.
+        `,
+
+        "FRAGMENTOS":`
+            <strong>Fragmento asociado:</strong> Fragmento de Alcance.<br><br>
+            Isaac fue su portador original dentro de los registros conocidos.<br><br>
+            Comprendió que el Alcance no solo permite llegar más lejos. Permite tocar cosas que deberían permanecer fuera del contacto humano.<br><br>
+            Por esa razón separó el fragmento en dos partes y entregó un pedazo a cada discípulo.<br><br>
+            Desde entonces, su propio vínculo con el fragmento quedó incompleto, pero no roto.
+        `,
+
+        "RELACIONES":`
+            <strong>Guillermo Tell:</strong> discípulo asociado al arco, la distancia y el disparo imposible.<br><br>
+            <strong>William Tell:</strong> discípulo asociado al cuerpo, el bastón y la disciplina interior.<br><br>
+            Isaac nunca los llamó armas. Los llamó preguntas distintas.
+        `,
+
+        "REGISTROS":`
+            <strong>Registro 047:</strong> El Maestro Sin Escuela. Primer archivo donde aparece el nombre Isaac Salvatore.<br><br>
+            <strong>Registro 048:</strong> La División del Alcance. Documento restringido sobre la separación del fragmento.<br><br>
+            <strong>Registro 049:</strong> Dos Discípulos, Una Distancia. Archivo vinculado al entrenamiento de los hermanos Tell.
+        `,
+
+        "CLASIFICACIÓN":`
+            <strong>Tipo:</strong> Humano<br>
+            <strong>Nivel de amenaza:</strong> ⭐⭐⭐⭐⭐⭐<br>
+            <strong>Importancia histórica:</strong> 9/10<br>
+            <strong>Nivel de conocimiento:</strong> Restringido<br>
+            <strong>Estado:</strong> Activo<br>
+            <strong>Riesgo para la humanidad:</strong> Bajo<br>
+            <strong>Clasificación Ningen:</strong> Maestro Antiguo
+        `
+    };
+
+    titulo.textContent=seccion;
+    texto.innerHTML=info[seccion];
+}
+</script>
+
+</body>
+</html>
