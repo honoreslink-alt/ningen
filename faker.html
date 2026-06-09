@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAKER | NINGEN</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:Segoe UI, sans-serif;
+    background:black;
+    color:white;
+    overflow:hidden;
+}
+
+#videoFondo{
+    position:fixed;
+    inset:0;
+    width:100vw;
+    height:100vh;
+    object-fit:cover;
+    z-index:-2;
+}
+
+.capaOscura{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.62);
+    z-index:-1;
+}
+
+.sonido{
+    position:fixed;
+    right:30px;
+    top:30px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    border:2px solid white;
+    background:rgba(0,0,0,.55);
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+    z-index:40;
+    box-shadow:0 0 12px white;
+}
+
+.titulo{
+    position:fixed;
+    top:35px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:55px;
+    letter-spacing:10px;
+    text-shadow:0 0 12px #ff4a4a,0 0 35px #111;
+    z-index:5;
+}
+
+.subtitulo{
+    position:fixed;
+    top:110px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:16px;
+    letter-spacing:4px;
+    color:#ffd0d0;
+    text-align:center;
+    z-index:5;
+}
+
+.menuLateral{
+    position:fixed;
+    left:25px;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:30;
+}
+
+.botonNingen{
+    width:240px;
+    padding:18px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.65);
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    letter-spacing:4px;
+    cursor:pointer;
+    background:linear-gradient(90deg,#c00000,#5c0000);
+    box-shadow:0 0 8px rgba(255,255,255,.25),0 0 18px rgba(255,0,0,.35);
+    transition:.3s;
+}
+
+.botonFicha{
+    width:240px;
+    padding:15px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.42);
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    letter-spacing:2px;
+    cursor:pointer;
+    background:linear-gradient(135deg,#050505,#2b2b2b,#120000);
+    box-shadow:0 0 8px rgba(255,255,255,.12),0 0 12px rgba(255,74,74,.28);
+    transition:.3s;
+}
+
+.botonNingen:hover{transform:scale(1.04)}
+
+.botonFicha:hover{
+    transform:translateX(6px);
+    box-shadow:0 0 12px rgba(255,255,255,.25),0 0 18px rgba(255,74,74,.55);
+}
+
+.panelInfo{
+    position:fixed;
+    left:330px;
+    top:210px;
+    width:470px;
+    min-height:330px;
+    max-height:62vh;
+    overflow-y:auto;
+    padding:28px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.22);
+    background:rgba(0,0,0,.42);
+    backdrop-filter:blur(5px);
+    z-index:20;
+}
+
+.panelInfo h2{
+    font-size:25px;
+    letter-spacing:4px;
+    color:#ffd0d0;
+    margin-bottom:18px;
+}
+
+.panelInfo p{
+    font-size:16px;
+    line-height:1.65;
+    color:rgba(255,255,255,.84);
+}
+
+.zonaCentral{
+    position:fixed;
+    top:185px;
+    right:110px;
+    width:520px;
+    bottom:60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:8;
+}
+
+.splashPersonaje{
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+    filter:drop-shadow(0 0 24px rgba(255,74,74,.45));
+}
+
+@media (max-width:768px){
+    .titulo{
+        top:22px;
+        font-size:27px;
+        letter-spacing:4px;
+        width:90%;
+        text-align:center;
+    }
+
+    .subtitulo{
+        top:68px;
+        font-size:10px;
+        width:90%;
+        letter-spacing:2px;
+    }
+
+    .sonido{
+        width:42px;
+        height:42px;
+        right:13px;
+        top:13px;
+        font-size:20px;
+    }
+
+    .zonaCentral{
+        top:105px;
+        left:5px;
+        right:5px;
+        width:auto;
+        bottom:165px;
+        align-items:center;
+    }
+
+    .splashPersonaje{
+        max-width:96%;
+        max-height:100%;
+    }
+
+    .menuLateral{
+        left:8px;
+        top:auto;
+        bottom:8px;
+        transform:none;
+        width:46%;
+        gap:4px;
+    }
+
+    .botonNingen{
+        width:100%;
+        padding:8px;
+        font-size:14px;
+        border-radius:10px;
+        letter-spacing:3px;
+    }
+
+    .botonFicha{
+        width:100%;
+        padding:6px;
+        font-size:8.5px;
+        border-radius:9px;
+        letter-spacing:1px;
+        background:transparent;
+        border:1px solid rgba(255,255,255,.32);
+        box-shadow:none;
+    }
+
+    .panelInfo{
+        left:auto;
+        top:auto;
+        right:8px;
+        bottom:8px;
+        width:46%;
+        min-height:160px;
+        max-height:260px;
+        overflow-y:auto;
+        padding:11px;
+        border-radius:12px;
+        background:rgba(0,0,0,.28);
+    }
+
+    .panelInfo h2{
+        font-size:11px;
+        letter-spacing:1px;
+        margin-bottom:7px;
+    }
+
+    .panelInfo p{
+        font-size:9px;
+        line-height:1.35;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<video id="videoFondo" autoplay muted loop playsinline>
+    <source src="grok_video_2026-03-10-13-42-53.mp4" type="video/mp4">
+</video>
+
+<div class="capaOscura"></div>
+
+<button class="sonido" id="botonSonido" onclick="toggleSonido()">🔇</button>
+
+<div class="titulo">FAKER</div>
+<div class="subtitulo">Archivo NINGEN // Khan Lee Jak</div>
+
+<div class="panelInfo">
+    <h2 id="tituloInfo">ARCHIVO</h2>
+    <p id="textoInfo">Selecciona una categoría para desplegar información de Faker.</p>
+</div>
+
+<div class="zonaCentral">
+    <img class="splashPersonaje" src="Splash Art Faker.png" alt="Khan Lee Jak Faker">
+</div>
+
+<div class="menuLateral">
+    <button class="botonNingen" onclick="window.location.href='index.html'">NINGEN</button>
+
+    <button class="botonFicha" onclick="mostrarInfo('IDENTIDAD')">IDENTIDAD</button>
+    <button class="botonFicha" onclick="mostrarInfo('ORIGEN')">ORIGEN</button>
+    <button class="botonFicha" onclick="mostrarInfo('DESCRIPCIÓN')">DESCRIPCIÓN</button>
+    <button class="botonFicha" onclick="mostrarInfo('PERSONALIDAD')">PERSONALIDAD</button>
+    <button class="botonFicha" onclick="mostrarInfo('HISTORIA')">HISTORIA</button>
+    <button class="botonFicha" onclick="mostrarInfo('HABILIDADES')">HABILIDADES</button>
+    <button class="botonFicha" onclick="mostrarInfo('FRAGMENTOS')">FRAGMENTOS</button>
+    <button class="botonFicha" onclick="mostrarInfo('RELACIONES')">RELACIONES</button>
+    <button class="botonFicha" onclick="mostrarInfo('REGISTROS')">REGISTROS</button>
+    <button class="botonFicha" onclick="mostrarInfo('CLASIFICACIÓN')">CLASIFICACIÓN</button>
+</div>
+
+<script>
+function toggleSonido(){
+    const video=document.getElementById("videoFondo");
+    const boton=document.getElementById("botonSonido");
+
+    video.muted = !video.muted;
+
+    if(video.muted){
+        boton.textContent="🔇";
+    }else{
+        video.play();
+        boton.textContent="🔊";
+    }
+}
+
+function mostrarInfo(seccion){
+    const titulo=document.getElementById("tituloInfo");
+    const texto=document.getElementById("textoInfo");
+
+    const info={
+        "IDENTIDAD":`
+            <strong>Nombre:</strong> Khan Lee Jak<br>
+            <strong>Alias:</strong> Faker, El Calculador, El Hombre de las Mil Jugadas, El Discípulo.<br>
+            <strong>Raza:</strong> Humano<br>
+            <strong>Sexo:</strong> Masculino<br>
+            <strong>Edad aparente:</strong> 35 años<br>
+            <strong>Edad real:</strong> Desconocida<br>
+            <strong>Estado:</strong> Activo<br>
+            <strong>Ubicación actual:</strong> Desconocida.
+        `,
+
+        "ORIGEN":`
+            Los primeros registros sobre Khan Lee Jak son prácticamente inexistentes.<br><br>
+            No se conoce su familia, su lugar de nacimiento ni el nombre que pudo haber usado antes de ser conocido como Faker.<br><br>
+            Los documentos más antiguos lo muestran acompañando a una figura desconocida cuya apariencia parecía permanecer inalterada con el paso de las décadas.<br><br>
+            Se desconoce cuánto tiempo permanecieron juntos.<br><br>
+            Se desconoce qué aprendió exactamente.<br><br>
+            Se desconoce incluso quién enseñó a quién.
+        `,
+
+        "DESCRIPCIÓN":`
+            Khan Lee Jak suele vestir de negro y cubrir su rostro con una máscara blanca.<br><br>
+            Su apariencia real no ha sido confirmada por ningún registro confiable.<br><br>
+            Algunos observadores afirman sentir que no están siendo observados solo por él, sino por algo más.<br><br>
+            La mayoría de las personas jamás percibe esa presencia.<br><br>
+            Quienes logran verla no entregan descripciones iguales.
+        `,
+
+        "PERSONALIDAD":`
+            Reservado, paciente y extremadamente observador.<br><br>
+            Khan habla poco. No por debilidad, sino porque rara vez considera necesario intervenir.<br><br>
+            No busca liderar, convencer ni llamar la atención.<br><br>
+            Prefiere observar, esperar y actuar solo cuando una posibilidad ya fue reducida a su punto exacto.<br><br>
+            Su silencio suele ser más inquietante que las amenazas de otros individuos.
+        `,
+
+        "HISTORIA":`
+            Durante años Khan recorrió distintos lugares junto a una figura cuya identidad permanece desconocida.<br><br>
+            Mientras otros estudiaban combate, fragmentos o poder, Khan estudió decisiones.<br><br>
+            Aprendió a leer personas, escenarios, errores, miedos y consecuencias.<br><br>
+            Diversos registros sugieren que, antes de desaparecer, su maestro compartió con él una forma de energía vinculada al Fragmento de Vida.<br><br>
+            Desde entonces, su envejecimiento parece haberse desacelerado.<br><br>
+            Faker nunca adivinaba lo que ocurriría.<br><br>
+            Simplemente eliminaba todas las demás opciones.
+        `,
+
+        "HABILIDADES":`
+            <strong>Pensamiento Predictivo:</strong> anticipa resultados a partir de información incompleta.<br><br>
+            <strong>Lectura Conductual:</strong> detecta patrones humanos invisibles para la mayoría.<br><br>
+            <strong>Estrategia Adaptativa:</strong> modifica planes complejos en tiempo real.<br><br>
+            <strong>Memoria Excepcional:</strong> conserva detalles aparentemente insignificantes durante décadas.<br><br>
+            <strong>Observación Extendida:</strong> algunos registros sugieren que percibe variables más allá de los sentidos humanos comunes.
+        `,
+
+        "FRAGMENTOS":`
+            <strong>Fragmento asociado:</strong> Ninguno confirmado.<br><br>
+            Khan Lee Jak no posee un fragmento propio registrado.<br><br>
+            Sin embargo, documentos restringidos indican que recibió energía proveniente del Fragmento de Vida a través de su maestro.<br><br>
+            Esta transferencia no equivale a portar un fragmento.<br><br>
+            Su naturaleza exacta permanece clasificada.
+        `,
+
+        "RELACIONES":`
+            <strong>Maestro Desconocido:</strong> figura responsable de gran parte de su formación. Su apariencia parecía no cambiar con el paso del tiempo.<br><br>
+            <strong>La Presencia:</strong> entidad, sombra o manifestación percibida ocasionalmente cerca de Khan. Su existencia no ha sido confirmada.<br><br>
+            Khan rara vez habla de vínculos personales. Los registros sugieren que prefiere borrar rastros antes que conservarlos.
+        `,
+
+        "REGISTROS":`
+            <strong>Registro 501:</strong> La Última Variable. Documento donde se concluye que Khan no predice el futuro, sino que reduce futuros posibles.<br><br>
+            <strong>Registro 502:</strong> El Hombre que Nunca Adivinó. Compilación de eventos donde anticipó decisiones humanas con precisión anormal.<br><br>
+            <strong>Registro 503:</strong> La Figura Detrás de la Máscara. Testimonios sobre una segunda presencia asociada a Khan.<br><br>
+            <strong>Registro 504:</strong> El Discípulo. Primer archivo que menciona la existencia de su maestro desconocido.
+        `,
+
+        "CLASIFICACIÓN":`
+            <strong>Tipo:</strong> Humano<br>
+            <strong>Nivel de amenaza:</strong> 🟥⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐<br>
+            <strong>Importancia histórica:</strong> 10/10<br>
+            <strong>Nivel de conocimiento:</strong> Prohibido<br>
+            <strong>Estado:</strong> Activo<br>
+            <strong>Riesgo para la humanidad:</strong> Desconocido<br>
+            <strong>Clasificación Ningen:</strong> Anomalía Estratégica
+        `
+    };
+
+    titulo.textContent=seccion;
+    texto.innerHTML=info[seccion];
+}
+</script>
+
+</body>
+</html>
