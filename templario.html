@@ -70,6 +70,32 @@ body{
     z-index:5;
 }
 
+.selectorVisual{
+    position:fixed;
+    top:145px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:12px;
+    z-index:30;
+}
+
+.selectorVisual button{
+    padding:10px 22px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.42);
+    background:rgba(0,0,0,.45);
+    color:#ffe8b8;
+    font-weight:bold;
+    letter-spacing:2px;
+    cursor:pointer;
+    box-shadow:0 0 10px rgba(255,223,138,.25);
+}
+
+.selectorVisual button:hover{
+    box-shadow:0 0 18px rgba(255,223,138,.65);
+}
+
 .menuLateral{
     position:fixed;
     left:25px;
@@ -182,6 +208,20 @@ body{
         letter-spacing:2px;
     }
 
+    .selectorVisual{
+        top:88px;
+        gap:5px;
+        width:90%;
+        justify-content:center;
+    }
+
+    .selectorVisual button{
+        padding:5px 8px;
+        font-size:8px;
+        border-radius:8px;
+        letter-spacing:1px;
+    }
+
     .sonido{
         width:42px;
         height:42px;
@@ -273,13 +313,19 @@ body{
 <div class="titulo">ROLAND RAGNAR</div>
 <div class="subtitulo">Archivo NINGEN // El Templario</div>
 
+<div class="selectorVisual">
+    <button onclick="mostrarVisual('splash')">SPLASH ART</button>
+    <button onclick="mostrarVisual('carta')">CARTA</button>
+    <button onclick="mostrarVisual('boceto')">BOCETO</button>
+</div>
+
 <div class="panelInfo">
     <h2 id="tituloInfo">ARCHIVO</h2>
     <p id="textoInfo">Selecciona una categoría para desplegar información de Roland Ragnar.</p>
 </div>
 
 <div class="zonaCentral">
-    <img class="splashPersonaje" src="Splash Art El Templario Rev - A.png" alt="Roland Ragnar El Templario">
+    <img id="imagenPrincipal" class="splashPersonaje" src="Splash Art El Templario Rev - A.png" alt="Roland Ragnar El Templario">
 </div>
 
 <div class="menuLateral">
@@ -309,6 +355,25 @@ function toggleSonido(){
     }else{
         video.play();
         boton.textContent="🔊";
+    }
+}
+
+function mostrarVisual(tipo){
+    const img=document.getElementById("imagenPrincipal");
+
+    if(tipo==="splash"){
+        img.src="Splash Art El Templario Rev - A.png";
+        img.alt="Roland Ragnar El Templario";
+    }
+
+    if(tipo==="carta"){
+        img.src="Carta El Templario.png";
+        img.alt="Carta Roland Ragnar";
+    }
+
+    if(tipo==="boceto"){
+        img.src="Boceto El Templario.png";
+        img.alt="Boceto Roland Ragnar";
     }
 }
 
