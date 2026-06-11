@@ -49,14 +49,15 @@ body{
 
 .logoPersonaje{
     position:fixed;
-    top:-85px;
+    top:-205px;
     left:50%;
     transform:translateX(-50%);
-    width:620px;
-    opacity:.24;
+    width:980px;
+    opacity:.72;
     z-index:3;
     pointer-events:none;
-    filter:drop-shadow(0 0 28px rgba(255,210,130,.35));
+    mix-blend-mode:screen;
+    filter:brightness(1.95) contrast(1.22) drop-shadow(0 0 34px rgba(255,210,130,.38));
 }
 
 .titulo{
@@ -206,9 +207,11 @@ body{
 
 @media (max-width:768px){
     .logoPersonaje{
-        top:-35px;
-        width:330px;
-        opacity:.16;
+        top:-78px;
+        width:520px;
+        opacity:.38;
+        mix-blend-mode:screen;
+        filter:brightness(1.65) contrast(1.15) drop-shadow(0 0 20px rgba(255,210,130,.28));
     }
 
     .titulo{
