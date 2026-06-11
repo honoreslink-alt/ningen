@@ -47,6 +47,18 @@ body{
     box-shadow:0 0 12px white;
 }
 
+.logoPersonaje{
+    position:fixed;
+    top:-85px;
+    left:50%;
+    transform:translateX(-50%);
+    width:620px;
+    opacity:.24;
+    z-index:3;
+    pointer-events:none;
+    filter:drop-shadow(0 0 28px rgba(255,210,130,.35));
+}
+
 .titulo{
     position:fixed;
     top:35px;
@@ -193,6 +205,12 @@ body{
 }
 
 @media (max-width:768px){
+    .logoPersonaje{
+        top:-35px;
+        width:330px;
+        opacity:.16;
+    }
+
     .titulo{
         top:22px;
         font-size:27px;
@@ -309,6 +327,8 @@ body{
 <div class="capaOscura"></div>
 
 <button class="sonido" id="botonSonido" onclick="toggleSonido()">🔇</button>
+
+<img class="logoPersonaje" src="Logo William Tell.png" alt="Logo William Tell">
 
 <div class="titulo">WILLIAM TELL</div>
 <div class="subtitulo">Archivo NINGEN // El Monje del Silencio Interior</div>
