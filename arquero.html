@@ -15,21 +15,28 @@ body{
     overflow:hidden;
 }
 
-#videoFondo{
+.fondoPersonaje{
     position:fixed;
     inset:0;
     width:100vw;
     height:100vh;
     object-fit:cover;
+    object-position:56% 38%;
+    opacity:.9;
     z-index:-2;
+    filter:brightness(.78) contrast(1.12);
 }
+
 
 .capaOscura{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.62);
+    background:
+        radial-gradient(circle at center, rgba(0,0,0,.08), rgba(0,0,0,.72) 78%),
+        rgba(0,0,0,.22);
     z-index:-1;
 }
+
 
 .sonido{
     position:fixed;
@@ -302,9 +309,11 @@ body{
 
 <body>
 
-<video id="videoFondo" autoplay muted loop playsinline>
-    <source src="grok_video_2026-03-10-13-42-53.mp4" type="video/mp4">
-</video>
+<img class="fondoPersonaje" src="Logo Guillermo Tell.png" alt="Fondo Guillermo Tell">
+
+<audio id="audioFondo" loop>
+    <source src="Soundtrack Arquero.mp3" type="audio/mpeg">
+</audio>
 
 <div class="capaOscura"></div>
 
