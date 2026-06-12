@@ -15,19 +15,24 @@ body{
     overflow:hidden;
 }
 
-#videoFondo{
+.fondoPersonaje{
     position:fixed;
     inset:0;
     width:100vw;
     height:100vh;
     object-fit:cover;
+    object-position:52% 42%;
+    opacity:.9;
     z-index:-2;
+    filter:brightness(.70) contrast(1.18);
 }
 
 .capaOscura{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.62);
+    background:
+        radial-gradient(circle at center, rgba(0,0,0,.05), rgba(0,0,0,.78) 80%),
+        rgba(0,0,0,.20);
     z-index:-1;
 }
 
@@ -155,7 +160,7 @@ body{
     padding:28px;
     border-radius:20px;
     border:1px solid rgba(255,255,255,.22);
-    background:rgba(0,0,0,.42);
+    background:rgba(0,0,0,.50);
     backdrop-filter:blur(5px);
     z-index:20;
 }
@@ -193,6 +198,12 @@ body{
 }
 
 @media (max-width:768px){
+    .fondoPersonaje{
+        object-position:center center;
+        opacity:.75;
+        filter:brightness(.62) contrast(1.15);
+    }
+
     .titulo{
         top:22px;
         font-size:27px;
@@ -283,7 +294,7 @@ body{
         overflow-y:auto;
         padding:11px;
         border-radius:12px;
-        background:rgba(0,0,0,.28);
+        background:rgba(0,0,0,.38);
     }
 
     .panelInfo h2{
@@ -302,9 +313,11 @@ body{
 
 <body>
 
-<video id="videoFondo" autoplay muted loop playsinline>
-    <source src="grok_video_2026-03-10-13-42-53.mp4" type="video/mp4">
-</video>
+<img class="fondoPersonaje" src="Logo El Ogro.png" alt="Fondo Frank Ford El Ogro">
+
+<audio id="audioFondo" loop>
+    <source src="Soundtrack Ogro.mp3" type="audio/mpeg">
+</audio>
 
 <div class="capaOscura"></div>
 
@@ -345,16 +358,16 @@ body{
 
 <script>
 function toggleSonido(){
-    const video=document.getElementById("videoFondo");
+    const audio=document.getElementById("audioFondo");
     const boton=document.getElementById("botonSonido");
 
-    video.muted = !video.muted;
-
-    if(video.muted){
-        boton.textContent="🔇";
-    }else{
-        video.play();
+    if(audio.paused){
+        audio.volume=.55;
+        audio.play();
         boton.textContent="🔊";
+    }else{
+        audio.pause();
+        boton.textContent="🔇";
     }
 }
 
