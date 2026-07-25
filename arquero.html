@@ -326,6 +326,7 @@ body{
     <button onclick="mostrarVisual('splash')">SPLASH ART</button>
     <button onclick="mostrarVisual('carta')">CARTA</button>
     <button onclick="mostrarVisual('boceto')">BOCETO</button>
+    <button onclick="mostrarVisual('figura')">FIGURA</button>
 </div>
 
 <div class="panelInfo">
@@ -384,6 +385,12 @@ function mostrarVisual(tipo){
         img.src="Boceto El Arquero.png";
         img.alt="Boceto Guillermo Tell";
     }
+
+    if(tipo==="figura"){
+        img.src="Figura Arquero.png";
+        img.alt="Figura Arquero";
+    }
+
 }
 
 function mostrarInfo(seccion){
