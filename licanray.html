@@ -317,6 +317,7 @@ body{
     <button onclick="mostrarVisual('splash')">SPLASH ART</button>
     <button onclick="mostrarVisual('carta')">CARTA</button>
     <button onclick="mostrarVisual('boceto')">BOCETO</button>
+    <button onclick="mostrarVisual('figura')">FIGURA</button>
 </div>
 
 <div class="panelInfo">
@@ -375,6 +376,12 @@ function mostrarVisual(tipo){
         img.src="Boceto Lican Ray.png";
         img.alt="Boceto Licanray";
     }
+
+    if(tipo==="Figura"){
+        img.src="Figura Licaray.png";
+        img.alt="Figura Licaray";
+    }
+
 }
 
 function mostrarInfo(seccion){
