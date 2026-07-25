@@ -345,6 +345,7 @@ body{
     <button onclick="mostrarVisual('splash')">SPLASH ART</button>
     <button onclick="mostrarVisual('carta')">CARTA</button>
     <button onclick="mostrarVisual('boceto')">BOCETO</button>
+    <button onclick="mostrarVisual('figura')">FIGURA</button>
 </div>
 
 <div class="panelInfo">
@@ -403,6 +404,12 @@ function mostrarVisual(tipo){
         img.src="Boceto Faker.png";
         img.alt="Boceto Faker";
     }
+
+    if(tipo==="figura"){
+        img.src="Figura Faker.png";
+        img.alt="Figura Faker";
+    }
+
 }
 
 function mostrarInfo(seccion){
