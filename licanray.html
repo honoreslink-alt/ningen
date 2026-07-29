@@ -302,11 +302,9 @@ body{
 
 <body>
 
-<video id="videoFondo" autoplay muted loop playsinline>
-    <source src="grok_video_2026-03-10-13-42-53.mp4" type="video/mp4">
-</video>
-
-<div class="capaOscura"></div>
+<audio id="audioFondo" loop>
+    <source src="Soundtrack Licanray.mp3" type="audio/mpeg">
+</audio>
 
 <button class="sonido" id="botonSonido" onclick="toggleSonido()">🔇</button>
 
@@ -346,16 +344,16 @@ body{
 
 <script>
 function toggleSonido(){
-    const video=document.getElementById("videoFondo");
+    const audio=document.getElementById("audioFondo");
     const boton=document.getElementById("botonSonido");
 
-    video.muted = !video.muted;
-
-    if(video.muted){
-        boton.textContent="🔇";
-    }else{
-        video.play();
+    if(audio.paused){
+        audio.volume=.55;
+        audio.play();
         boton.textContent="🔊";
+    }else{
+        audio.pause();
+        boton.textContent="🔇";
     }
 }
 
